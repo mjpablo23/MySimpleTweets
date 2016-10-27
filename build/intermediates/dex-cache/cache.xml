@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-24.2.1_6ad7ed64b0d267bce57b39f9a54755197e70a2c8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_fd5045af758be1edd2821c6a54ea4b9e2e463a38.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_cc52799540ac5959b6764d3a891efec4f4483191.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_4e4fc1a26b67b20dbd5576bca38e9894644595c5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_81719c0b1bd661a9a332fa137aff0be741c1d79d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-24.2.1_d30b49872d239b23d3d7d5b74df214560f95901a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.codepath.libraries/android-oauth-handler/1.1.0/jars/libs/codepath-utils.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="4a948907bd42abbd2f5f18e66c50aa81e5d07791">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/codepath-utils_933e19f4dd9f91b89de4c3ba5e526eb99dc60592.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_58b9bdaffb47b1c246f92f2d7d3d3389cf7dab6e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.1_666db85042bfba4faea9f24b03610c02368f8334.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/picasso-2.5.2_0e79683f5a146185ad0576f3def39143f712570a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_1bd09d80712b89e2e2a17d4952538e1363f9aae0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_9020fd3313409b1c4630b562b70c223e514bc941.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.github.Raizlabs.DBFlow/dbflow/3.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="58342b97007b49e4a536bdd30b9c3928be81ae59">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/com.github.Raizlabs.DBFlow-dbflow-3.1.1_7c9fd5f65a067332bed0bfcb752823d2db0a7679.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_5eaa0160714e69ad98d8edfe73be61f30956ef42.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_76edffea3488cf9f83cf20c4c9162cad5d388d20.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/com.android.support-design-24.2.1_eca44cd62a0bce65adfdefa7f4902f1d6dcb9ae8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_1c20b932e6b284eeab205c496edb738aa200016d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_384e9e1b6f8acd28bbbd851afac65b3b8466237d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.codepath.libraries/android-oauth-handler/1.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="bac2c6fd56dae63bf540102c8f12cfbf5802545f">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/com.codepath.libraries-android-oauth-handler-1.1.0_3ab381f06a86be475567ec9db1cd5e0fd4b2e13e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/.gradle/caches/modules-2/files-2.1/cz.msebera.android/httpclient/4.3.6/526a9f794eab830eae4f23a62c572878b3f491ab/httpclient-4.3.6.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="526a9f794eab830eae4f23a62c572878b3f491ab">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/httpclient-4.3.6_6f9d06993d617bd4318bea095da37ca55175b19f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_e21662f2ff81c8f20f5cc7f38b8d6a1a17a4f906.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_b2ec7666f924c3d1ff193df087896d641feffb64.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.9/386a4339ffe52d5d63e80f9bed8d2b1d1a418249/android-async-http-1.4.9.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="386a4339ffe52d5d63e80f9bed8d2b1d1a418249">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/android-async-http-1.4.9_ab848ef304bdb479fbb8d80bd6c6ac783d5b8d02.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.codepath.libraries/android-oauth-handler/1.1.0/jars/libs/scribe-codepath-0.0.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="0492333dc94d7c11c933116e6ddee16a60594e98">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/scribe-codepath-0.0.3_ceb9f92d78df9a17b2f4f7e002e91dfc86d109d8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/.gradle/caches/modules-2/files-2.1/com.github.Raizlabs.DBFlow/dbflow-core/3.1.1/f205bcc63da15f536f333e1c82de622fdbb35956/dbflow-core-3.1.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="f205bcc63da15f536f333e1c82de622fdbb35956">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/dbflow-core-3.1.1_46bd861251352787e66807f4d99d6c88806f4f9b.jar" />
+    </item>
+
+</items>
