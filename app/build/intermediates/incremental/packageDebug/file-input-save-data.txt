@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu Oct 27 13:58:26 PDT 2016
+#Thu Oct 27 15:02:07 PDT 2016
 20.base=/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/res/resources-debug.ap_
 143.base=/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/res/resources-debug.ap_
 340.file=/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/res/resources-debug.ap_/res/drawable-hdpi-v4/abc_list_pressed_holo_dark.9.png
