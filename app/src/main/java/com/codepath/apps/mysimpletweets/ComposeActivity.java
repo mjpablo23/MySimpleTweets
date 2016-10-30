@@ -11,11 +11,22 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.codepath.apps.mysimpletweets.models.Tweet;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
+import cz.msebera.android.httpclient.Header;
+
 /**
  * Created by paulyang on 10/29/16.
  */
 public class ComposeActivity extends AppCompatActivity {
 
+    private TwitterClient client;
     private EditText tweetText;
     private TextView charsLeft;
 
@@ -31,6 +42,34 @@ public class ComposeActivity extends AppCompatActivity {
 
         // listener for editText
         tweetText.addTextChangedListener(mTextEditorWatcher);
+
+        client = TwitterApp.getRestClient();  // singleton client
+
+
+    }
+
+    // post to timeline using twitter client's put method
+    private void postToTimeline(String tweet) {
+        client.makePost(new JsonHttpResponseHandler() {
+            // need to handle json response or not?
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray json) {
+                Log.d("Debug", json.toString());
+                // deserialize json
+                // create models and add them to adapter
+                // load model data into listview
+                ArrayList<Tweet> tweets = Tweet.fromJSONArray(json);
+            }
+
+            // failure
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Log.d("Debug", errorResponse.toString());
+            }
+
+        }, tweet);
     }
 
     // Post button press
@@ -44,6 +83,8 @@ public class ComposeActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "too many characters", Toast.LENGTH_LONG).show();
             return;
         }
+
+        postToTimeline(tweet);
 
         Intent data = new Intent();
 //        data.putExtra("checkArts", checkArts);

@@ -21,11 +21,13 @@ import org.scribe.builder.api.TwitterApi;
  * NOTE: You may want to rename this object based on the service i.e TwitterClient or FlickrClient
  * 
  */
+
+// readme for rest client template from codepath: https://github.com/codepath/android-rest-client-template
 public class TwitterClient extends OAuthBaseClient {
 	public static final Class<? extends Api> REST_API_CLASS = TwitterApi.class; // Change this
 	public static final String REST_URL = "https://api.twitter.com/1.1"; // Change this, base API URL
-	public static final String REST_CONSUMER_KEY = "JFrEv4T5OaLqJc82xjXU4oLm8";       // Change this
-	public static final String REST_CONSUMER_SECRET = "0wHGLV5q2FxvvyVqGGIIPzYdN50IsKz9C6TSXxvjzTL2cVjvZh"; // Change this
+	public static final String REST_CONSUMER_KEY = "C7Q05VHCCfNxezVBcN4BpnRFW";       // Change this
+	public static final String REST_CONSUMER_SECRET = "QzqQfpRxiEGBfp79nrznEEadlmbNBbsuUdugLAFEJI9wKvmdOX"; // Change this
 	public static final String REST_CALLBACK_URL = "oauth://cpsimpletweets"; // Change this (here and in manifest)
 
 	public TwitterClient(Context context) {
@@ -74,6 +76,18 @@ public class TwitterClient extends OAuthBaseClient {
         // compose tweet
     }
 
+    public void makePost(AsyncHttpResponseHandler handler, String postStr) {
+        String apiUrl = getApiUrl("statuses/update.json");
+
+        RequestParams params = new RequestParams();
+        params.put("status", postStr);
+
+        // http://stackoverflow.com/questions/107390/whats-the-difference-between-a-post-and-a-put-http-request
+        // call post, not put?
+        getClient().post(apiUrl, params, handler);
+        // execute request
+        // getClient().put(apiUrl, params, handler);
+    }
 
 	/* 1. Define the endpoint URL with getApiUrl and pass a relative path to the endpoint
 	 * 	  i.e getApiUrl("statuses/home_timeline.json");
