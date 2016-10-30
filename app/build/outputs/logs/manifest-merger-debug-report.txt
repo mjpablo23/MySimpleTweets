@@ -21,14 +21,14 @@ MERGED from [com.github.Raizlabs.DBFlow:dbflow:3.1.1] /Users/paulyang/AndroidStu
 MERGED from [com.codepath.libraries:android-oauth-handler:1.1.0] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.codepath.libraries/android-oauth-handler/1.1.0/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:design:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:appcompat-v7:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:support-v4:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-fragment:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-media-compat:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-utils:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:21:5-23:61
 MERGED from [com.android.support:animated-vector-drawable:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/AndroidManifest.xml:21:5-43
 MERGED from [com.android.support:recyclerview-v7:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/AndroidManifest.xml:21:5-23:63
 MERGED from [com.android.support:support-core-ui:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:21:5-23:61
 MERGED from [com.android.support:support-compat:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/AndroidManifest.xml:23:9-75
@@ -60,13 +60,13 @@ ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/And
 MERGED from [com.github.Raizlabs.DBFlow:dbflow:3.1.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.github.Raizlabs.DBFlow/dbflow/3.1.1/AndroidManifest.xml:11:5-20
 MERGED from [com.android.support:design:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:appcompat-v7:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/AndroidManifest.xml:23:5-20
 MERGED from [com.android.support:support-v4:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-fragment:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-media-compat:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-utils:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:animated-vector-drawable:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-vector-drawable:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/AndroidManifest.xml:23:5-20
 MERGED from [com.android.support:support-core-ui:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-compat:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
 	android:label
 		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:19:9-41
@@ -90,14 +90,14 @@ ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/And
 		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:26:13-30
 	android:name
 		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:25:13-41
-activity#com.codepath.apps.mysimpletweets.LoginActivity
+activity#com.codepath.apps.mysimpletweets.activities.LoginActivity
 ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:28:9-47:20
 	android:label
 		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:30:13-45
 	android:theme
 		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:31:13-44
 	android:name
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:29:13-42
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:29:13-53
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
 ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:32:13-36:29
 action#android.intent.action.MAIN
@@ -128,19 +128,19 @@ ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/And
 		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:44:21-50
 	android:scheme
 		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:45:21-43
-activity#com.codepath.apps.mysimpletweets.TimelineActivity
+activity#com.codepath.apps.mysimpletweets.activities.TimelineActivity
 ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:48:9-51:68
 	android:label
 		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:50:13-60
 	android:theme
 		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:51:13-56
 	android:name
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:49:13-45
-activity#com.codepath.apps.mysimpletweets.ComposeActivity
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:49:13-56
+activity#com.codepath.apps.mysimpletweets.activities.ComposeActivity
 ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:53:9-56:68
 	android:label
 		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:55:13-59
 	android:theme
 		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:56:13-56
 	android:name
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:54:13-44
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:54:13-55
