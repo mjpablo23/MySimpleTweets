@@ -112,6 +112,10 @@
         "source": "/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/select_dialog_item_material.xml"
     },
     {
+        "merged": "/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/layout/activity_compose.xml",
+        "source": "/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/res/layout/activity_compose.xml"
+    },
+    {
         "merged": "/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/layout/notification_template_lines.xml",
         "source": "/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/notification_template_lines.xml"
     },

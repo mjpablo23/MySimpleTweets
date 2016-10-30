@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextCompose"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.28"
+        android:hint="Type new tweet here" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Characters left:  140 "
+        android:id="@+id/textViewCharactersRemaining"
+        android:layout_weight="0.06" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Post"
+        android:id="@+id/postButton"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.05" />
+</LinearLayout>

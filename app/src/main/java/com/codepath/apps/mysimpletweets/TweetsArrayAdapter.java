@@ -47,7 +47,7 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
         tvUserName.setText("@" + tweet.getUser().getScreenName());
         tvName.setText(tweet.getUser().getName());
         timestamp.setText(getRelativeTime(tweet.getCreatedAt()));
-        tvBody.setText(tweet.getBody());
+        tvBody.setText(tweet.getUid() + " " + tweet.getBody());
         ivProfileImage.setImageResource(android.R.color.transparent);  // clear out the old image for a recycled view
         Picasso.with(getContext()).load(tweet.getUser().getProfileImageUrl()).into(ivProfileImage);
         // 5. return the view to be inserted into the list
@@ -70,8 +70,15 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
         // DateUtils.getRelativeDateTimeString(, now, 0L, DateUtils.FORMAT_ABBREV_ALL);
         String pastStr = DateUtils.getRelativeTimeSpanString(past).toString();
         String[] arr = pastStr.split("\\s+");
-        String unit = arr[1].substring(0,1);
-        String retStr = arr[0] + "" + unit;
+
+        String retStr = "";
+        if (arr.length > 1) {
+            String unit = arr[1].substring(0, 1);
+            retStr = arr[0] + "" + unit;
+        }
+        else {
+            retStr = arr[0];
+        }
         return retStr;
     }
 }
