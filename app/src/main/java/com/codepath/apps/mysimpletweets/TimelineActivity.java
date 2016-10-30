@@ -50,6 +50,7 @@ public class TimelineActivity extends AppCompatActivity {
         client = TwitterApp.getRestClient();  // singleton client
         populateTimeline();
 
+        // endless scrolling
         lvTweets.setOnScrollListener(new EndlessScrollListener() {
             @Override
             public boolean onLoadMore(int page, int totalItemsCount) {
@@ -75,6 +76,9 @@ public class TimelineActivity extends AppCompatActivity {
                 // deserialize json
                 // create models and add them to adapter
                 // load model data into listview
+
+                aTweets.clear();
+
                 ArrayList<Tweet> tweets = Tweet.fromJSONArray(json);
 
                 // https://dev.twitter.com/rest/public/timelines
@@ -142,10 +146,19 @@ public class TimelineActivity extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(), ComposeActivity.class);
                 System.out.println("start filter activity");
                 startActivityForResult(i, REQUEST_CODE_COMPOSE);
+                Log.d("debug", "called startActivityForResult");
                 return true;
             }
         });
         return super.onCreateOptionsMenu(menu);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE_COMPOSE) {
+            // refresh timeline
+            populateTimeline();
+        }
+    }
 }

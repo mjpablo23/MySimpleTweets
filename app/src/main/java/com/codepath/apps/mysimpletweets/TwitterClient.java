@@ -85,8 +85,6 @@ public class TwitterClient extends OAuthBaseClient {
         // http://stackoverflow.com/questions/107390/whats-the-difference-between-a-post-and-a-put-http-request
         // call post, not put?
         getClient().post(apiUrl, params, handler);
-        // execute request
-        // getClient().put(apiUrl, params, handler);
     }
 
 	/* 1. Define the endpoint URL with getApiUrl and pass a relative path to the endpoint

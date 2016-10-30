@@ -47,7 +47,7 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
         tvUserName.setText("@" + tweet.getUser().getScreenName());
         tvName.setText(tweet.getUser().getName());
         timestamp.setText(getRelativeTime(tweet.getCreatedAt()));
-        tvBody.setText(tweet.getUid() + " " + tweet.getBody());
+        tvBody.setText(tweet.getBody());
         ivProfileImage.setImageResource(android.R.color.transparent);  // clear out the old image for a recycled view
         Picasso.with(getContext()).load(tweet.getUser().getProfileImageUrl()).into(ivProfileImage);
         // 5. return the view to be inserted into the list
