@@ -26,6 +26,8 @@ public class TimelineActivity extends AppCompatActivity {
     private TweetsArrayAdapter aTweets;
     private ListView lvTweets;
 
+    private long lowestId = -1;
+
     private final int REQUEST_CODE_COMPOSE = 20;
 
     @Override
@@ -74,6 +76,12 @@ public class TimelineActivity extends AppCompatActivity {
                 // create models and add them to adapter
                 // load model data into listview
                 ArrayList<Tweet> tweets = Tweet.fromJSONArray(json);
+
+                // https://dev.twitter.com/rest/public/timelines
+                // find lowest id from tweets, as max_id
+                Tweet t = tweets.get(tweets.size()-1);  // last element in ArrayList
+                lowestId = t.getUid();
+                Log.d("debug", "maxId: " + lowestId);
                 aTweets.addAll(tweets);
             }
 
@@ -94,6 +102,33 @@ public class TimelineActivity extends AppCompatActivity {
         //  --> Deserialize and construct new model objects from the API response
         //  --> Append the new data objects to the existing set of items inside the array of items
         //  --> Notify the adapter of the new items made with `notifyDataSetChanged()`
+
+        client.getHomeTimeline(new JsonHttpResponseHandler() {
+            // success
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray json) {
+                Log.d("Debug", json.toString());
+                // deserialize json
+                // create models and add them to adapter
+                // load model data into listview
+                ArrayList<Tweet> tweets = Tweet.fromJSONArray(json);
+
+                // find lowest id from tweets, as max_id
+                Tweet t = tweets.get(tweets.size()-1);  // last element in ArrayList
+                lowestId = t.getUid();
+                Log.d("debug", "maxId: " + lowestId);
+                aTweets.addAll(tweets);
+            }
+
+            // failure
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Log.d("Debug", errorResponse.toString());
+            }
+            // this call has lowestId as second argument, subtract 1 as described in documentation
+        }, lowestId - 1);
     }
 
     @Override

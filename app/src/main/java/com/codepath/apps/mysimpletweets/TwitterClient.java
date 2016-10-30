@@ -53,18 +53,26 @@ public class TwitterClient extends OAuthBaseClient {
 		params.put("count", 20);
 //		params.put("since_id", 1);
 
-        // how to use this?
-		// params.put("max_id", 50);
-
-		// add cursor for pagination
-		// params.put("cursor", -1);
-
 		// execute request
 		getClient().get(apiUrl, params, handler);
 
 		// compose tweet
-
 	}
+
+    // alternate getHomeTimeline function with parameter for max_id
+    public void getHomeTimeline(AsyncHttpResponseHandler handler, long lowestId) {
+        String apiUrl = getApiUrl("statuses/home_timeline.json");
+        // specify params
+        RequestParams params = new RequestParams();
+        params.put("count", 20);
+        params.put("max_id", lowestId);
+//		params.put("since_id", 1);
+
+        // execute request
+        getClient().get(apiUrl, params, handler);
+
+        // compose tweet
+    }
 
 
 	/* 1. Define the endpoint URL with getApiUrl and pass a relative path to the endpoint
