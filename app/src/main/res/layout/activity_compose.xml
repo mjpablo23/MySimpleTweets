@@ -25,5 +25,6 @@
         android:text="Post"
         android:id="@+id/postButton"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="0.05" />
+        android:layout_weight="0.05"
+        android:onClick="postClickHandler"/>
 </LinearLayout>

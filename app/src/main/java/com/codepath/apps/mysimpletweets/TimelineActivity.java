@@ -94,6 +94,7 @@ public class TimelineActivity extends AppCompatActivity {
         });
     }
 
+    // used for endless scrolling
     // Append the next page of data into the adapter
     // This method probably sends out a network request and appends new data items to your adapter.
     public void loadNextDataFromApi(int offset) {
@@ -146,4 +147,5 @@ public class TimelineActivity extends AppCompatActivity {
         });
         return super.onCreateOptionsMenu(menu);
     }
+
 }
