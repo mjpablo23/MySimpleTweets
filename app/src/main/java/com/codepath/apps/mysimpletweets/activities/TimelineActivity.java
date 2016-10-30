@@ -2,6 +2,7 @@ package com.codepath.apps.mysimpletweets.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -14,7 +15,6 @@ import com.codepath.apps.mysimpletweets.R;
 import com.codepath.apps.mysimpletweets.TweetsArrayAdapter;
 import com.codepath.apps.mysimpletweets.TwitterApp;
 import com.codepath.apps.mysimpletweets.TwitterClient;
-import com.codepath.apps.mysimpletweets.activities.ComposeActivity;
 import com.codepath.apps.mysimpletweets.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -27,13 +27,20 @@ import cz.msebera.android.httpclient.Header;
 
 public class TimelineActivity extends AppCompatActivity {
 
+    // pull to refresh
+    // http://guides.codepath.com/android/Implementing-Pull-to-Refresh-Guide
+    private SwipeRefreshLayout swipeContainer;
+
+
     private TwitterClient client;
     private ArrayList<Tweet> tweets;
     private TweetsArrayAdapter aTweets;
     private ListView lvTweets;
 
+    // for endless scroll
     private long lowestId = -1;
 
+    // compose activity
     private final int REQUEST_CODE_COMPOSE = 20;
 
     @Override
@@ -67,9 +74,66 @@ public class TimelineActivity extends AppCompatActivity {
                 return true; // ONLY if more data is actually being loaded; false otherwise.
             }
         });
+
+        // pull to refresh
+        // Lookup the swipe container view
+        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+        // Setup refresh listener which triggers new data loading
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // Your code to refresh the list here.
+                // Make sure you call swipeContainer.setRefreshing(false)
+                // once the network request has completed successfully.
+                fetchTimelineAsync(0);
+            }
+        });
+        // Configure the refreshing colors
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
+
     }
 
-    // send api request to get timeline json
+    // for pull to refresh
+    public void fetchTimelineAsync(int page) {
+        client.getHomeTimeline(new JsonHttpResponseHandler() {
+            // success
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray json) {
+                Log.d("Debug", json.toString());
+                // deserialize json
+                // create models and add them to adapter
+                // load model data into listview
+
+                aTweets.clear();
+
+                ArrayList<Tweet> tweets = Tweet.fromJSONArray(json);
+
+                // https://dev.twitter.com/rest/public/timelines
+                // find lowest id from tweets, as max_id
+                Tweet t = tweets.get(tweets.size()-1);  // last element in ArrayList
+                lowestId = t.getUid();
+                Log.d("debug", "maxId: " + lowestId);
+                aTweets.addAll(tweets);
+
+                // Now we call setRefreshing(false) to signal refresh has finished
+                swipeContainer.setRefreshing(false);
+
+            }
+
+            // failure
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Log.d("Debug", errorResponse.toString());
+            }
+        });
+    }
+
+        // send api request to get timeline json
     // fill listview by creating tweet objects from json
     private void populateTimeline() {
         // at 45:23 in video
