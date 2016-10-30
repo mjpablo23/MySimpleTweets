@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat Oct 29 18:11:38 PDT 2016
+#Sat Oct 29 18:18:02 PDT 2016
 20.base=/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/res/resources-debug.ap_
 143.base=/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/res/resources-debug.ap_
 340.file=/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/res/resources-debug.ap_/res/anim-v21/design_appbar_state_list_animator.xml
