@@ -49,8 +49,11 @@ dependencies {
     compile 'com.loopj.android:android-async-http:1.4.9'
     compile 'com.android.support:design:24.2.1'
 
-    // pull to refresh
+    // pull to refresh, recycler
     compile 'com.android.support:support-v4:24.2.1'
+
+    // recycler
+    compile 'com.android.support:recyclerview-v7:24.2.1'
 
     // butterknife
     compile 'com.jakewharton:butterknife:8.4.0'
