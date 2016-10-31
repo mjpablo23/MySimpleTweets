@@ -182,6 +182,8 @@ public class TimelineActivity extends AppCompatActivity {
                 Log.d("debug", "maxId: " + lowestId);
 
                 aTweets.addAll(tweets);
+
+                lvTweets.smoothScrollToPosition(0);
             }
 
             // failure
@@ -256,6 +258,7 @@ public class TimelineActivity extends AppCompatActivity {
         if (resultCode == RESULT_OK && requestCode == REQUEST_CODE_COMPOSE) {
             // refresh timeline
             populateTimeline();
+
         }
     }
 }

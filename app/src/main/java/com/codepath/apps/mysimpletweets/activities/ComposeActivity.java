@@ -16,7 +16,6 @@ import com.codepath.apps.mysimpletweets.TwitterApp;
 import com.codepath.apps.mysimpletweets.TwitterClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
@@ -53,15 +52,20 @@ public class ComposeActivity extends AppCompatActivity {
         client.makePost(new JsonHttpResponseHandler() {
             // need to handle json response or not?
 
+
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONArray json) {
-                Log.d("Debug", json.toString());
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                Log.d("Debug", response.toString());
+                finish();
             }
 
             // failure
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 Log.d("Debug", errorResponse.toString());
+                Toast.makeText(getApplicationContext(), "error posting", Toast.LENGTH_LONG).show();
+                finish();
             }
 
         }, tweet);
@@ -85,7 +89,7 @@ public class ComposeActivity extends AppCompatActivity {
 //        data.putExtra("checkArts", checkArts);
         setResult(RESULT_OK, data);
 
-        finish();
+
     }
 
     // character count for edittext

@@ -3,6 +3,7 @@ package com.codepath.apps.mysimpletweets.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.format.DateUtils;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -187,10 +188,14 @@ public class Tweet implements Parcelable {
         long past = date.getTime();
         // DateUtils.getRelativeDateTimeString(, now, 0L, DateUtils.FORMAT_ABBREV_ALL);
         String pastStr = DateUtils.getRelativeTimeSpanString(past).toString();
+        Log.d("debug", pastStr);
         String[] arr = pastStr.split("\\s+");
 
         String retStr = "";
-        if (arr.length > 1) {
+        if (pastStr.equalsIgnoreCase("in 0 minutes")) {
+            retStr = "0m";
+        }
+        else if (arr.length > 1) {
             String unit = arr[1].substring(0, 1);
             retStr = arr[0] + "" + unit;
         }
