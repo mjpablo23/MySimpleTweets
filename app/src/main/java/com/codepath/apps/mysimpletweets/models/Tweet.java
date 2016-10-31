@@ -2,12 +2,16 @@ package com.codepath.apps.mysimpletweets.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.text.format.DateUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  {
@@ -166,6 +170,34 @@ public class Tweet implements Parcelable {
         }
 
         return tweets;
+    }
+
+    public String getRelativeTime() {
+        // http://stackoverflow.com/questions/25350164/java-parsing-twitters-created-at-string
+        System.out.println("created_at: " + createdAt);
+        final String TWITTER = "EEE MMM dd HH:mm:ss ZZZZZ yyyy";
+        SimpleDateFormat sf = new SimpleDateFormat(TWITTER);
+        Date date = new Date();
+        try {
+            date = sf.parse(createdAt);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        // long now = System.currentTimeMillis();
+        long past = date.getTime();
+        // DateUtils.getRelativeDateTimeString(, now, 0L, DateUtils.FORMAT_ABBREV_ALL);
+        String pastStr = DateUtils.getRelativeTimeSpanString(past).toString();
+        String[] arr = pastStr.split("\\s+");
+
+        String retStr = "";
+        if (arr.length > 1) {
+            String unit = arr[1].substring(0, 1);
+            retStr = arr[0] + "" + unit;
+        }
+        else {
+            retStr = arr[0];
+        }
+        return retStr;
     }
 
     // parcelable methods

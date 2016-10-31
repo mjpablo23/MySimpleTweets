@@ -1,7 +1,6 @@
 package com.codepath.apps.mysimpletweets;
 
 import android.content.Context;
-import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +11,6 @@ import android.widget.TextView;
 import com.codepath.apps.mysimpletweets.models.Tweet;
 import com.squareup.picasso.Picasso;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 // take tweet objects and turn them into views displayed in list
@@ -48,7 +44,8 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
         tvUserName.setText("");
         tvUserName.setText("@" + tweet.getUser().getScreenName());
         tvName.setText(tweet.getUser().getName());
-        timestamp.setText(getRelativeTime(tweet.getCreatedAt()));
+        //timestamp.setText(getRelativeTime(tweet.getCreatedAt()));
+        timestamp.setText(tweet.getRelativeTime());
 
         // changed to linkifiedTextView
         tvBody.setText(tweet.getBody());
@@ -60,31 +57,4 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
         return convertView;
     }
 
-    public String getRelativeTime(String createdAt) {
-        // http://stackoverflow.com/questions/25350164/java-parsing-twitters-created-at-string
-        System.out.println("created_at: " + createdAt);
-        final String TWITTER = "EEE MMM dd HH:mm:ss ZZZZZ yyyy";
-        SimpleDateFormat sf = new SimpleDateFormat(TWITTER);
-        Date date = new Date();
-        try {
-            date = sf.parse(createdAt);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        // long now = System.currentTimeMillis();
-        long past = date.getTime();
-        // DateUtils.getRelativeDateTimeString(, now, 0L, DateUtils.FORMAT_ABBREV_ALL);
-        String pastStr = DateUtils.getRelativeTimeSpanString(past).toString();
-        String[] arr = pastStr.split("\\s+");
-
-        String retStr = "";
-        if (arr.length > 1) {
-            String unit = arr[1].substring(0, 1);
-            retStr = arr[0] + "" + unit;
-        }
-        else {
-            retStr = arr[0];
-        }
-        return retStr;
-    }
 }

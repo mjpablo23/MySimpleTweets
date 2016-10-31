@@ -13,11 +13,12 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="20sp"
         android:id="@+id/nameText"
         android:layout_below="@+id/detailImageView"
         android:layout_centerHorizontal="true"
-        android:text="Name" />
+        android:text="Name"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -42,6 +43,7 @@
         android:id="@+id/bodyTextView"
         android:layout_below="@+id/screenNameTextView"
         android:layout_centerHorizontal="true"
-        android:text="body" />
+        android:text="body"
+        android:autoLink="all"/>
 
 </RelativeLayout>

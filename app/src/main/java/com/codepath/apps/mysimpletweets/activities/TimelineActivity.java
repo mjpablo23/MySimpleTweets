@@ -73,6 +73,8 @@ public class TimelineActivity extends AppCompatActivity {
                 Tweet t = tweets.get(position);
 
                 Log.d("debug", "clicked on tweet: " + t.getUid());
+                i.putExtra("tweet", t);
+                i.putExtra("user", t.getUser());
                 // i.putExtra("tweet", Parcels.wrap(t));
                 startActivity(i);
             }

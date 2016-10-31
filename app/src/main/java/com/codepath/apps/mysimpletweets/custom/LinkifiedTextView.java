@@ -13,6 +13,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.TextView;
 
+// this did not work.
 public class LinkifiedTextView extends TextView {
     public LinkifiedTextView(Context context, AttributeSet attrs) {
         super(context, attrs);

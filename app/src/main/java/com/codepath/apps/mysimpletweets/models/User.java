@@ -1,5 +1,8 @@
 package com.codepath.apps.mysimpletweets.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -65,7 +68,7 @@ import org.json.JSONObject;
  "screen_name": "episod"
  },
  */
-public class User {
+public class User implements Parcelable {
 
     // list attributes
     private String name;
@@ -105,4 +108,42 @@ public class User {
         // return a user
         return u;
     }
+
+    public User() {
+
+    }
+
+    // parcelable methods
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.name);
+        dest.writeString(this.screenName);
+        dest.writeString(this.profileImageUrl);
+        dest.writeLong(this.uid);
+    }
+
+    protected User(Parcel in) {
+        this.name = in.readString();
+        this.screenName= in.readString();
+        this.profileImageUrl = in.readString();
+        this.uid = in.readLong();
+    }
+
+    public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel source) {
+            return new User(source);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
 }
