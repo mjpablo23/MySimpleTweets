@@ -2590,7 +2590,7 @@ containing a value of this type.
         public static final int action_bar_spinner=0x7f0b0001;
         public static final int action_bar_subtitle=0x7f0b003e;
         public static final int action_bar_title=0x7f0b003d;
-        public static final int action_compose=0x7f0b008f;
+        public static final int action_compose=0x7f0b0094;
         public static final int action_context_bar=0x7f0b005f;
         public static final int action_divider=0x7f0b0086;
         public static final int action_menu_divider=0x7f0b0002;
@@ -2605,6 +2605,7 @@ containing a value of this type.
         public static final int always=0x7f0b0036;
         public static final int auto=0x7f0b0021;
         public static final int beginning=0x7f0b0034;
+        public static final int bodyTextView=0x7f0b0093;
         public static final int bottom=0x7f0b0022;
         public static final int buttonPanel=0x7f0b0047;
         public static final int cancel_action=0x7f0b0083;
@@ -2626,6 +2627,8 @@ containing a value of this type.
         public static final int design_menu_item_action_area_stub=0x7f0b007a;
         public static final int design_menu_item_text=0x7f0b0079;
         public static final int design_navigation_view=0x7f0b0078;
+        public static final int detailImageView=0x7f0b008f;
+        public static final int detailTimestamp=0x7f0b0092;
         public static final int disableHome=0x7f0b000e;
         public static final int editTextCompose=0x7f0b006d;
         public static final int edit_query=0x7f0b0060;
@@ -2659,6 +2662,7 @@ containing a value of this type.
         public static final int mini=0x7f0b0033;
         public static final int multiply=0x7f0b001b;
         public static final int name=0x7f0b007f;
+        public static final int nameText=0x7f0b0090;
         public static final int navigation_header_container=0x7f0b0077;
         public static final int never=0x7f0b0039;
         public static final int none=0x7f0b0010;
@@ -2673,6 +2677,7 @@ containing a value of this type.
         public static final int relativeTimestamp=0x7f0b0081;
         public static final int right=0x7f0b0029;
         public static final int screen=0x7f0b001c;
+        public static final int screenNameTextView=0x7f0b0091;
         public static final int scroll=0x7f0b0018;
         public static final int scrollIndicatorDown=0x7f0b0051;
         public static final int scrollIndicatorUp=0x7f0b004e;
@@ -2793,6 +2798,7 @@ containing a value of this type.
         public static final int select_dialog_multichoice_material=0x7f030035;
         public static final int select_dialog_singlechoice_material=0x7f030036;
         public static final int support_simple_spinner_dropdown_item=0x7f030037;
+        public static final int tweet_detailed_view=0x7f030038;
     }
     public static final class menu {
         public static final int login=0x7f0c0000;
@@ -2839,6 +2845,7 @@ containing a value of this type.
         public static final int status_bar_notification_info_overflow=0x7f050014;
         public static final int title_activity_compose=0x7f050026;
         public static final int title_activity_timeline=0x7f050027;
+        public static final int title_activity_tweet_detail=0x7f050028;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f07008e;

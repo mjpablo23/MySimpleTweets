@@ -1,5 +1,8 @@
 package com.codepath.apps.mysimpletweets.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -101,7 +104,8 @@ import java.util.ArrayList;
  */
 
 // parse the json, store the data, encapsulate logic or display logic
-public class Tweet {
+
+public class Tweet implements Parcelable {
     // list of attributes
     private String body;
     private long uid;  // unique id for tweet
@@ -142,6 +146,10 @@ public class Tweet {
         return tweet;
     }
 
+    public Tweet() {
+
+    }
+
     public static ArrayList<Tweet> fromJSONArray(JSONArray jsonArray) {
         ArrayList<Tweet> tweets = new ArrayList<>();
         for (int i=0; i<jsonArray.length(); i++) {
@@ -159,4 +167,36 @@ public class Tweet {
 
         return tweets;
     }
+
+    // parcelable methods
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.body);
+        dest.writeString(this.createdAt);
+        dest.writeLong(this.uid);
+    }
+
+    protected Tweet(Parcel in) {
+        this.body = in.readString();
+        this.createdAt = in.readString();
+        this.uid = in.readLong();
+    }
+
+    public static final Parcelable.Creator<Tweet> CREATOR = new Parcelable.Creator<Tweet>() {
+        @Override
+        public Tweet createFromParcel(Parcel source) {
+            return new Tweet(source);
+        }
+
+        @Override
+        public Tweet[] newArray(int size) {
+            return new Tweet[size];
+        }
+    };
 }

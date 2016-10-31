@@ -14,8 +14,8 @@ import com.squareup.picasso.Picasso;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.List;
 import java.util.Date;
+import java.util.List;
 
 // take tweet objects and turn them into views displayed in list
 public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
@@ -39,6 +39,8 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
         ImageView ivProfileImage = (ImageView) convertView.findViewById(R.id.ivProfileImage);
         TextView tvUserName = (TextView) convertView.findViewById(R.id.tvUserName);
         TextView tvBody = (TextView) convertView.findViewById(R.id.tvBody);
+
+        // LinkifiedTextView tvBody = (LinkifiedTextView) convertView.findViewById(R.id.tvBody);
         TextView tvName = (TextView) convertView.findViewById(R.id.name);
         TextView timestamp = (TextView) convertView.findViewById(R.id.relativeTimestamp);
 
@@ -47,7 +49,11 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
         tvUserName.setText("@" + tweet.getUser().getScreenName());
         tvName.setText(tweet.getUser().getName());
         timestamp.setText(getRelativeTime(tweet.getCreatedAt()));
+
+        // changed to linkifiedTextView
         tvBody.setText(tweet.getBody());
+        // tvBody.setText(Html.fromHtml(tweet.getBody()), TextView.BufferType.SPANNABLE);
+
         ivProfileImage.setImageResource(android.R.color.transparent);  // clear out the old image for a recycled view
         Picasso.with(getContext()).load(tweet.getUser().getProfileImageUrl()).into(ivProfileImage);
         // 5. return the view to be inserted into the list

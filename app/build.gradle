@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+// pacelable
+apply plugin: 'com.neenbedankt.android-apt'
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
@@ -46,5 +48,15 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.loopj.android:android-async-http:1.4.9'
     compile 'com.android.support:design:24.2.1'
+
+    // pull to refresh
     compile 'com.android.support:support-v4:24.2.1'
+
+    // butterknife
+    compile 'com.jakewharton:butterknife:8.4.0'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+
+    // parcelable (also in project gradle)
+    compile 'org.parceler:parceler-api:1.1.1'
+    apt 'org.parceler:parceler:1.1.1'
 }

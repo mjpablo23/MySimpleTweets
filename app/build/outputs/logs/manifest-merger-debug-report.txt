@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:2:1-59:12
+ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:2:1-65:12
 	package
 		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:3:5-47
 		INJECTED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml
@@ -30,6 +30,7 @@ MERGED from [com.android.support:support-media-compat:24.2.1] /Users/paulyang/An
 MERGED from [com.android.support:support-core-ui:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-core-utils:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:21:5-23:61
 MERGED from [com.android.support:support-compat:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.jakewharton:butterknife:8.4.0] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.jakewharton/butterknife/8.4.0/AndroidManifest.xml:5:5-43
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
@@ -56,7 +57,7 @@ ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/And
 	android:name
 		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:13:30-85
 application
-ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:15:5-57:19
+ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:15:5-63:19
 MERGED from [com.github.Raizlabs.DBFlow:dbflow:3.1.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.github.Raizlabs.DBFlow/dbflow/3.1.1/AndroidManifest.xml:11:5-20
 MERGED from [com.android.support:design:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:appcompat-v7:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/AndroidManifest.xml:25:5-20
@@ -144,3 +145,11 @@ ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/And
 		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:56:13-56
 	android:name
 		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:54:13-55
+activity#com.codepath.apps.mysimpletweets.activities.TweetDetailActivity
+ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:58:9-61:68
+	android:label
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:60:13-64
+	android:theme
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:61:13-56
+	android:name
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:59:13-59

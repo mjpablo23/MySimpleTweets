@@ -75,6 +75,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/paulyang/.gradle/caches/modules-2/files-2.1/org.parceler/parceler-api/1.1.1/d081ad6f7c51627ebe2dbf157cc525cbf5e9c821/parceler-api-1.1.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d081ad6f7c51627ebe2dbf157cc525cbf5e9c821">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/parceler-api-1.1.1_7f8c62f3268bf9770a28ec194f135fc502bc9e44.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -147,6 +156,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/paulyang/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.4.0/ea392375cf9ff59234a82e7928a204215ccc98cd/butterknife-annotations-8.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="ea392375cf9ff59234a82e7928a204215ccc98cd">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/butterknife-annotations-8.4.0_44b4577f4e5ac63c60d010e14db702a8e41bb34a.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.github.Raizlabs.DBFlow/dbflow/3.1.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -216,6 +234,15 @@
         revision="24.0.2"
         sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
         <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_b2ec7666f924c3d1ff193df087896d641feffb64.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.jakewharton/butterknife/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="a07818a1ecabdb149998823429cce555af4b9cba">
+        <dex dex="/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/pre-dexed/debug/com.jakewharton-butterknife-8.4.0_67c1a0f14df130f3cae6c82485833a4265df34c8.jar" />
     </item>
     <item
         is-multidex="false"

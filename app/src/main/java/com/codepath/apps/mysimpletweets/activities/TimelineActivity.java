@@ -8,9 +8,11 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.codepath.apps.mysimpletweets.EndlessScrollListener;
+import com.codepath.apps.mysimpletweets.custom.EndlessScrollListener;
 import com.codepath.apps.mysimpletweets.R;
 import com.codepath.apps.mysimpletweets.TweetsArrayAdapter;
 import com.codepath.apps.mysimpletweets.TwitterApp;
@@ -62,6 +64,19 @@ public class TimelineActivity extends AppCompatActivity {
 
         client = TwitterApp.getRestClient();  // singleton client
         populateTimeline();
+
+        // click on item to show detail view
+        lvTweets.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(getApplicationContext(), TweetDetailActivity.class);
+                Tweet t = tweets.get(position);
+
+                Log.d("debug", "clicked on tweet: " + t.getUid());
+                // i.putExtra("tweet", Parcels.wrap(t));
+                startActivity(i);
+            }
+        });
 
         // endless scrolling
         lvTweets.setOnScrollListener(new EndlessScrollListener() {

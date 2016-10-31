@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="wrap_content"
-    android:padding="10dp">
+    android:padding="10dp"
+    >
 
     <ImageView
         android:id="@+id/ivProfileImage"
@@ -35,9 +36,11 @@
         android:layout_below="@+id/tvUserName"
         android:layout_toRightOf="@+id/ivProfileImage"
         android:layout_toEndOf="@+id/ivProfileImage"
-        android:autoLink="all"
-        android:linksClickable="true"
         />
+
+    <!--turning autolink on blocks clicking on item.  doesn't work even if I try other solutions from codepath-->
+    <!--android:autoLink="all"-->
+    <!--android:linksClickable="true"-->
 
     <TextView
         android:id="@+id/name"

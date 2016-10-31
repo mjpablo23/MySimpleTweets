@@ -560,6 +560,7 @@
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="title_activity_compose">Compose Tweet</string>
     <string name="title_activity_timeline">Home Timeline</string>
+    <string name="title_activity_tweet_detail">Tweet Detail</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>

@@ -55,6 +55,10 @@
             android:name="com.codepath.apps.mysimpletweets.activities.ComposeActivity"
             android:label="@string/title_activity_compose"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.codepath.apps.mysimpletweets.activities.TweetDetailActivity"
+            android:label="@string/title_activity_tweet_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
