@@ -1,4 +1,4 @@
-#Wed Nov 02 21:46:54 PDT 2016
+#Fri Nov 04 12:45:13 PDT 2016
 base.0=/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
 renamed.0=classes.dex
 file.0=/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex
