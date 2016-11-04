@@ -4,6 +4,10 @@
         "source": "/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/res/menu/login.xml"
     },
     {
+        "merged": "/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/menu/menu_profile.xml",
+        "source": "/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/res/menu/menu_profile.xml"
+    },
+    {
         "merged": "/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/menu/menu_timeline.xml",
         "source": "/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/res/menu/menu_timeline.xml"
     }

@@ -1,5 +1,13 @@
 [
     {
+        "merged": "/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_compose.png",
+        "source": "/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/res/drawable-xhdpi/ic_compose.png"
+    },
+    {
+        "merged": "/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_profile.png",
+        "source": "/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/res/drawable-xhdpi/ic_profile.png"
+    },
+    {
         "merged": "/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_launcher.png",
         "source": "/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/res/drawable-xhdpi/ic_launcher.png"
     }

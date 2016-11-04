@@ -53,7 +53,6 @@ public class TwitterClient extends OAuthBaseClient {
 		// specify params
 		RequestParams params = new RequestParams();
 		params.put("count", 20);
-		params.put("since_id", 1);
 
 		// execute request
 		getClient().get(apiUrl, params, handler);
@@ -85,6 +84,37 @@ public class TwitterClient extends OAuthBaseClient {
         // http://stackoverflow.com/questions/107390/whats-the-difference-between-a-post-and-a-put-http-request
         // call post, not put?
         getClient().post(apiUrl, params, handler);
+    }
+
+	public void getMentionsTimeline(AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl("statuses/mentions_timeline.json");
+		// specify params
+		RequestParams params = new RequestParams();
+		params.put("count", 20);
+		params.put("since_id", 1);
+
+		// execute request
+		getClient().get(apiUrl, params, handler);
+	}
+
+    public void getUserTimeline(AsyncHttpResponseHandler handler) {
+        getUserTimeline("", handler);
+    }
+
+    public void getUserTimeline(String screenName, AsyncHttpResponseHandler handler) {
+        String apiUrl = getApiUrl("statuses/user_timeline.json");
+        // specify params
+        RequestParams params = new RequestParams();
+        params.put("count", 20);
+        if (screenName != null && !screenName.isEmpty()) {
+            params.put("screen_name", screenName);
+        }
+        getClient().get(apiUrl, params, handler);
+    }
+
+    public void getUserInfo(AsyncHttpResponseHandler handler) {
+        String apiUrl = getApiUrl("account/verify_credentials.json");
+        getClient().get(apiUrl, null, handler);
     }
 
 	/* 1. Define the endpoint URL with getApiUrl and pass a relative path to the endpoint
