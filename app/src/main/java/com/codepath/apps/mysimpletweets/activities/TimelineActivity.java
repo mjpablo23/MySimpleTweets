@@ -45,65 +45,12 @@ public class TimelineActivity extends AppCompatActivity {
         // attach the tabstrip to the view pager
         tabStrip.setViewPager(vpPager);
 
-        // moved into TweetsListFragment.java
-
-
-//        // endless scrolling
-//        lvTweets.setOnScrollListener(new EndlessScrollListener() {
-//            @Override
-//            public boolean onLoadMore(int page, int totalItemsCount) {
-//                // Triggered only when new data needs to be appended to the list
-//                // Add whatever code is needed to append new items to your AdapterView
-//                loadNextDataFromApi(lowestId-1);
-//                // or loadNextDataFromApi(totalItemsCount);
-//                return true; // ONLY if more data is actually being loaded; false otherwise.
-//            }
-//        });
 
     }
 
 
 
 
-
-//    // used for endless scrolling
-//    // Append the next page of data into the adapter
-//    // This method probably sends out a network request and appends new data items to your adapter.
-//    public void loadNextDataFromApi(long offset) {
-//        // Send an API request to retrieve appropriate paginated data
-//        //  --> Send the request including an offset value (i.e `page`) as a query parameter.
-//        //  --> Deserialize and construct new model objects from the API response
-//        //  --> Append the new data objects to the existing set of items inside the array of items
-//        //  --> Notify the adapter of the new items made with `notifyDataSetChanged()`
-//
-//        client.getHomeTimeline(new JsonHttpResponseHandler() {
-//            // success
-//
-//            @Override
-//            public void onSuccess(int statusCode, Header[] headers, JSONArray json) {
-//                Log.d("Debug", json.toString());
-//                // deserialize json
-//                // create models and add them to adapter
-//                // load model data into listview
-//                ArrayList<Tweet> tweets = Tweet.fromJSONArray(json);
-//
-//                // find lowest id from tweets, as max_id
-//                Tweet t = tweets.get(tweets.size()-1);  // last element in ArrayList
-//                lowestId = t.getUid();
-//                sinceId = tweets.get(0).getUid();
-//                Log.d("debug", "maxId: " + lowestId);
-//                fragmentTweetsList.addAll(tweets);
-//            }
-//
-//            // failure
-//
-//            @Override
-//            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-//                Log.d("Debug", errorResponse.toString());
-//            }
-//            // this call has lowestId as second argument, subtract 1 as described in documentation
-//        }, offset, 1);
-//    }
 
 
     @Override
@@ -179,10 +126,14 @@ public class TimelineActivity extends AppCompatActivity {
             // refresh timeline
 //            TweetsListFragment tf = (TweetsListFragment) tweetsPagerAdapter.getRegisteredFragment(vpPager.getCurrentItem());
 //            tf.populateTimeline();
+
             for (int i=0; i < tweetsPagerAdapter.getCount(); i++) {
                 TweetsListFragment tf = (TweetsListFragment) tweetsPagerAdapter.getRegisteredFragment(i);
-                tf.populateTimeline();
+                tf.populateGenericTimelineWithSinceId();
             }
+
+//            TweetsListFragment tf = (TweetsListFragment) tweetsPagerAdapter.getRegisteredFragment(0);
+//            tf.populateHomeTimelineWithSinceId();
         }
     }
 }

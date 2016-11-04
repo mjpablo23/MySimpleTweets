@@ -19,6 +19,7 @@ import com.codepath.apps.mysimpletweets.TweetsArrayAdapter;
 import com.codepath.apps.mysimpletweets.TwitterApp;
 import com.codepath.apps.mysimpletweets.TwitterClient;
 import com.codepath.apps.mysimpletweets.activities.TweetDetailActivity;
+import com.codepath.apps.mysimpletweets.custom.EndlessScrollListener;
 import com.codepath.apps.mysimpletweets.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -53,17 +54,6 @@ public class TweetsListFragment extends Fragment {
     private long sinceId = 1;
 
 
-//    // mentions timeline
-//    private long lowestId_mentionsTimeline = -1;
-//    private long sinceId_mentionsTimeline = 1;
-//
-//    // users timeline
-//    private long lowestId_userTimeline = -1;
-//    private long sinceId_userTimeline = 1;
-
-
-    private final int REQUEST_CODE_COMPOSE = 20;
-
     // inflation logic
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup parent, @Nullable Bundle savedInstanceState) {
@@ -89,6 +79,8 @@ public class TweetsListFragment extends Fragment {
 
         startPullToRefreshListener(v);
 
+        startEndlessScrollListener();
+
         return v;
     }
 
@@ -110,6 +102,94 @@ public class TweetsListFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
     }
 
+    // ----------- endless scrolling ------------
+    public void startEndlessScrollListener() {
+                // endless scrolling
+        lvTweets.setOnScrollListener(new EndlessScrollListener() {
+            @Override
+            public boolean onLoadMore(int page, int totalItemsCount) {
+                // Triggered only when new data needs to be appended to the list
+                // Add whatever code is needed to append new items to your AdapterView
+                loadNextDataFromApi(lowestId-1);
+                // or loadNextDataFromApi(totalItemsCount);
+                return true; // ONLY if more data is actually being loaded; false otherwise.
+            }
+        });
+    }
+
+    // used for endless scrolling
+    // Append the next page of data into the adapter
+    // This method probably sends out a network request and appends new data items to your adapter.
+    public void loadNextDataFromApi(long offset) {
+
+        client.getGenericTimelineWithLowestId(fragmentType, offset, new JsonHttpResponseHandler() {
+            // success
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray json) {
+                Log.d("Debug", json.toString());
+                // deserialize json
+                // create models and add them to adapter
+                // load model data into listview
+                ArrayList<Tweet> tweets = Tweet.fromJSONArray(json);
+
+                // find lowest id from tweets, as max_id
+                if (tweets.size() > 0) {
+                    Tweet t = tweets.get(tweets.size() - 1);  // last element in ArrayList
+                    lowestId = t.getUid();
+                    // sinceId = tweets.get(0).getUid();
+                    Log.d("debug", "maxId: " + lowestId);
+                    aTweets.addAll(tweets);
+                }
+            }
+
+            // failure
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Log.d("Debug", errorResponse.toString());
+            }
+            // this call has lowestId as second argument, subtract 1 as described in documentation
+        });
+    }
+
+//        // used for endless scrolling
+//    // Append the next page of data into the adapter
+//    // This method probably sends out a network request and appends new data items to your adapter.
+//    public void loadNextDataFromApi(long offset) {
+//
+//        client.getHomeTimelineWithLowestId(offset, new JsonHttpResponseHandler() {
+//            // success
+//
+//            @Override
+//            public void onSuccess(int statusCode, Header[] headers, JSONArray json) {
+//                Log.d("Debug", json.toString());
+//                // deserialize json
+//                // create models and add them to adapter
+//                // load model data into listview
+//                ArrayList<Tweet> tweets = Tweet.fromJSONArray(json);
+//
+//                // find lowest id from tweets, as max_id
+//                if (tweets.size() > 0) {
+//                    Tweet t = tweets.get(tweets.size() - 1);  // last element in ArrayList
+//                    lowestId = t.getUid();
+//                    // sinceId = tweets.get(0).getUid();
+//                    Log.d("debug", "maxId: " + lowestId);
+//                    aTweets.addAll(tweets);
+//                }
+//            }
+//
+//            // failure
+//
+//            @Override
+//            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+//                Log.d("Debug", errorResponse.toString());
+//            }
+//            // this call has lowestId as second argument, subtract 1 as described in documentation
+//        });
+//    }
+
+    // ---------- pull to refresh ------------------
     public void startPullToRefreshListener(View v) {
                 // pull to refresh
         // Lookup the swipe container view
@@ -140,19 +220,23 @@ public class TweetsListFragment extends Fragment {
         aTweets.clear();
     }
 
+//    public void  populateTimeline() {
+//        if (fragmentType.equals("home")) {
+//            populateHomeTimeline();
+//        }
+//        else if (fragmentType.equals("mentions")) {
+//            populateMentionsTimeline();
+//        }
+//        else if (fragmentType.equals("user")) {
+//            populateUserTimeline();
+//        }
+//        else {
+//            Log.d("debug", "populateTimeline error");
+//        }
+//    }
+
     public void  populateTimeline() {
-        if (fragmentType.equals("home")) {
-            populateHomeTimeline();
-        }
-        else if (fragmentType.equals("mentions")) {
-            populateMentionsTimeline();
-        }
-        else if (fragmentType.equals("user")) {
-            populateUserTimeline();
-        }
-        else {
-            Log.d("debug", "populateTimeline error");
-        }
+        populateGenericTimeline();
     }
 
     // send api request to get timeline json
@@ -177,7 +261,7 @@ public class TweetsListFragment extends Fragment {
                 // find lowest id from tweets, as max_id
                 Tweet t = tweets.get(tweets.size()-1);  // last element in ArrayList
                 lowestId = t.getUid();
-                sinceId = tweets.get(0).getUid();
+                sinceId = tweets.get(1).getUid();
                 Log.d("debug", "maxId: " + lowestId);
 
                 addAll(tweets);
@@ -192,6 +276,101 @@ public class TweetsListFragment extends Fragment {
                 Log.d("Debug", errorResponse.toString());
             }
         });
+    }
+
+    public void populateGenericTimeline() {
+        // at 45:23 in video
+        client.getGenericTimeline(fragmentType, new JsonHttpResponseHandler() {
+            // success
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray json) {
+                Log.d("Debug", json.toString());
+                // deserialize json
+                // create models and add them to adapter
+                // load model data into listview
+
+                clear();
+
+                ArrayList<Tweet> tweets = Tweet.fromJSONArray(json);
+
+                // https://dev.twitter.com/rest/public/timelines
+                // find lowest id from tweets, as max_id
+                Tweet t = tweets.get(tweets.size()-1);  // last element in ArrayList
+                lowestId = t.getUid();
+                sinceId = tweets.get(1).getUid();
+                Log.d("debug", "maxId: " + lowestId);
+
+                addAll(tweets);
+
+                lvTweets.smoothScrollToPosition(0);
+            }
+
+            // failure
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Log.d("Debug", errorResponse.toString());
+            }
+        });
+    }
+
+    public void populateGenericTimelineWithSinceId() {
+        // at 45:23 in video
+
+        client.getGenericTimelineWithSinceId(fragmentType, sinceId, new JsonHttpResponseHandler() {
+            // success
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray json) {
+                Log.d("Debug", json.toString());
+                // deserialize json
+                showNewestTweets(json);
+            }
+
+            // failure
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Log.d("Debug", errorResponse.toString());
+            }
+        });
+    }
+
+//    public void populateHomeTimelineWithSinceId() {
+//        // at 45:23 in video
+//        client.getHomeTimelineWithSinceId(sinceId, new JsonHttpResponseHandler() {
+//            // success
+//
+//            @Override
+//            public void onSuccess(int statusCode, Header[] headers, JSONArray json) {
+//                Log.d("Debug", json.toString());
+//                // deserialize json
+//                showNewestTweets(json);
+//            }
+//
+//            // failure
+//            @Override
+//            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+//                Log.d("Debug", errorResponse.toString());
+//            }
+//        });
+//    }
+
+    public void showNewestTweets(JSONArray json) {
+        ArrayList<Tweet> tweets = Tweet.fromJSONArray(json);
+
+        // https://dev.twitter.com/rest/public/timelines
+        // find lowest id from tweets, as max_id
+        Log.d("debug", "num tweets retrieved: " + tweets.size());
+        Tweet t = tweets.get(0);  // last element in ArrayList
+//                lowestId = t.getUid();
+        sinceId = tweets.get(0).getUid();
+        Log.d("debug", "maxId: " + lowestId);
+
+        // addAll(tweets);
+        aTweets.insert(t, 0);
+        aTweets.notifyDataSetChanged();
+
+        lvTweets.smoothScrollToPosition(0);
     }
 
     // send api request to get timeline json
@@ -216,7 +395,7 @@ public class TweetsListFragment extends Fragment {
                 // find lowest id from tweets, as max_id
                 Tweet t = tweets.get(tweets.size()-1);  // last element in ArrayList
                 lowestId = t.getUid();
-                sinceId = tweets.get(0).getUid();
+                sinceId = tweets.get(1).getUid();
 
                 addAll(tweets);
 
@@ -256,7 +435,7 @@ public class TweetsListFragment extends Fragment {
                 // find lowest id from tweets, as max_id
                 Tweet t = tweets.get(tweets.size()-1);  // last element in ArrayList
                 lowestId = t.getUid();
-                sinceId = tweets.get(0).getUid();
+                sinceId = tweets.get(1).getUid();
 
                 addAll(tweets);
 
@@ -279,13 +458,12 @@ public class TweetsListFragment extends Fragment {
         swipeContainer.setRefreshing(false);
     }
 
-    //    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE_COMPOSE) {
-            // refresh timeline
-            populateTimeline();
-
-        }
-    }
+//    //    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == REQUEST_CODE_COMPOSE) {
+//            // refresh timeline
+//            populateHomeTimelineWithSinceId();
+//        }
+//    }
 }
