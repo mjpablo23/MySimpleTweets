@@ -26,7 +26,7 @@ public class TimelineActivity extends AppCompatActivity {
 
     // pager adapter
     TweetsPagerAdapter tweetsPagerAdapter;
-
+    ViewPager vpPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +36,7 @@ public class TimelineActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // get viewpager
-        ViewPager vpPager = (ViewPager) findViewById(R.id.viewpager);
+        vpPager = (ViewPager) findViewById(R.id.viewpager);
         // set the view pager adapter for the pager
         tweetsPagerAdapter = new TweetsPagerAdapter(getSupportFragmentManager());
         vpPager.setAdapter(tweetsPagerAdapter);
@@ -177,8 +177,12 @@ public class TimelineActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && requestCode == REQUEST_CODE_COMPOSE) {
             // refresh timeline
-            TweetsListFragment tf = (TweetsListFragment) tweetsPagerAdapter.getRegisteredFragment(0);
-            tf.populateHomeTimeline();
+//            TweetsListFragment tf = (TweetsListFragment) tweetsPagerAdapter.getRegisteredFragment(vpPager.getCurrentItem());
+//            tf.populateTimeline();
+            for (int i=0; i < tweetsPagerAdapter.getCount(); i++) {
+                TweetsListFragment tf = (TweetsListFragment) tweetsPagerAdapter.getRegisteredFragment(i);
+                tf.populateTimeline();
+            }
         }
     }
 }

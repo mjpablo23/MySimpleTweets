@@ -49,17 +49,17 @@ public class TweetsListFragment extends Fragment {
     private TwitterClient client;
 
     // home timeline
-    private long lowestId_homeTimeline = -1;
-    private long sinceId_homeTimeline = 1;
+    private long lowestId = -1;
+    private long sinceId = 1;
 
 
-    // mentions timeline
-    private long lowestId_mentionsTimeline = -1;
-    private long sinceId_mentionsTimeline = 1;
-
-    // users timeline
-    private long lowestId_userTimeline = -1;
-    private long sinceId_userTimeline = 1;
+//    // mentions timeline
+//    private long lowestId_mentionsTimeline = -1;
+//    private long sinceId_mentionsTimeline = 1;
+//
+//    // users timeline
+//    private long lowestId_userTimeline = -1;
+//    private long sinceId_userTimeline = 1;
 
 
     private final int REQUEST_CODE_COMPOSE = 20;
@@ -176,9 +176,9 @@ public class TweetsListFragment extends Fragment {
                 // https://dev.twitter.com/rest/public/timelines
                 // find lowest id from tweets, as max_id
                 Tweet t = tweets.get(tweets.size()-1);  // last element in ArrayList
-                lowestId_homeTimeline = t.getUid();
-                sinceId_homeTimeline = tweets.get(0).getUid();
-                Log.d("debug", "maxId: " + lowestId_homeTimeline);
+                lowestId = t.getUid();
+                sinceId = tweets.get(0).getUid();
+                Log.d("debug", "maxId: " + lowestId);
 
                 addAll(tweets);
 
@@ -215,13 +215,12 @@ public class TweetsListFragment extends Fragment {
                 // https://dev.twitter.com/rest/public/timelines
                 // find lowest id from tweets, as max_id
                 Tweet t = tweets.get(tweets.size()-1);  // last element in ArrayList
-                lowestId_mentionsTimeline = t.getUid();
-                sinceId_mentionsTimeline = tweets.get(0).getUid();
-                Log.d("debug", "maxId: " + sinceId_mentionsTimeline);
+                lowestId = t.getUid();
+                sinceId = tweets.get(0).getUid();
 
                 addAll(tweets);
 
-                // lvTweets.smoothScrollToPosition(0);
+                lvTweets.smoothScrollToPosition(0);
             }
 
             // failure
@@ -256,13 +255,12 @@ public class TweetsListFragment extends Fragment {
                 // https://dev.twitter.com/rest/public/timelines
                 // find lowest id from tweets, as max_id
                 Tweet t = tweets.get(tweets.size()-1);  // last element in ArrayList
-                lowestId_userTimeline = t.getUid();
-                sinceId_userTimeline = tweets.get(0).getUid();
-                Log.d("debug", "maxId: " + lowestId_userTimeline);
+                lowestId = t.getUid();
+                sinceId = tweets.get(0).getUid();
 
                 addAll(tweets);
 
-                // lvTweets.smoothScrollToPosition(0);
+                lvTweets.smoothScrollToPosition(0);
             }
 
             // failure
