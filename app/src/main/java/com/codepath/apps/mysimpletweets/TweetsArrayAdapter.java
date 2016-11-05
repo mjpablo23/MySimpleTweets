@@ -18,8 +18,16 @@ import java.util.List;
 // take tweet objects and turn them into views displayed in list
 public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
 
+    // create listener for profile image:  http://guides.codepath.com/android/Creating-Custom-Listeners
+    private ProfileImageClickedListener listener;
+
     public TweetsArrayAdapter(Context context, List<Tweet> tweets) {
         super(context, android.R.layout.simple_list_item_1, tweets);
+        this.listener = null;
+    }
+
+    public void setProfileImageClickedListener(ProfileImageClickedListener listener) {
+        this.listener = listener;
     }
 
     // override and setup custom template
@@ -69,11 +77,20 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
 
     public void gotoProfileForUser(User u) {
         Log.d("debug", "clicked on image for user: " + u.getName());
+        listener.onDataLoaded(u.getScreenName());
     }
 
 //    public void onProfileView(MenuItem mi) {
 //        Intent i = new Intent(this, ProfileActivity.class);
 //        startActivity(i);
 //    }
+
+    public interface ProfileImageClickedListener {
+        // These methods are the different events and
+        // need to pass relevant arguments related to the event triggered
+        public void onObjectReady(String title);
+        // or when data has been loaded
+        public void onDataLoaded(String screenName);
+    }
 
 }

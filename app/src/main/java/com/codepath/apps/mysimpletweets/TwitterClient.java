@@ -10,6 +10,8 @@ import com.loopj.android.http.RequestParams;
 import org.scribe.builder.api.Api;
 import org.scribe.builder.api.TwitterApi;
 
+import java.util.ArrayList;
+
 /*
  * 
  * This is the object responsible for communicating with a REST API. 
@@ -32,6 +34,7 @@ public class TwitterClient extends OAuthBaseClient {
 	public static final String REST_CALLBACK_URL = "oauth://cpsimpletweets"; // Change this (here and in manifest)
 
     private int numTweetsPerCall = 30;
+    private int numTweetsForRefresh = 3;
 
 	public TwitterClient(Context context) {
 		super(context, REST_API_CLASS, REST_URL, REST_CONSUMER_KEY, REST_CONSUMER_SECRET, REST_CALLBACK_URL);
@@ -54,6 +57,17 @@ public class TwitterClient extends OAuthBaseClient {
         return apiUrl;
     }
 
+    // is this more work?
+    public void getGenericTimelineWithParams(String type, ArrayList<StringPair> paramPairs, AsyncHttpResponseHandler handler) {
+        String apiUrl = getApiUrlForType(type);
+        RequestParams params = new RequestParams();
+        for (int i=0; i < paramPairs.size(); i++) {
+            StringPair p = paramPairs.get(i);
+            params.put(p.getKey(),p.getValue());
+        }
+        getClient().get(apiUrl, params, handler);
+    }
+
     public void getGenericTimeline(String type, AsyncHttpResponseHandler handler) {
         // String apiUrl = getApiUrl("statuses/home_timeline.json");
         String apiUrl = getApiUrlForType(type);
@@ -64,8 +78,19 @@ public class TwitterClient extends OAuthBaseClient {
         getClient().get(apiUrl, params, handler);
     }
 
+    public void getUserTimeline(String type, String screenName, AsyncHttpResponseHandler handler) {
+        // String apiUrl = getApiUrl("statuses/home_timeline.json");
+        String apiUrl = getApiUrlForType(type);
+        // specify params
+        RequestParams params = new RequestParams();
+        params.put("count", numTweetsPerCall);
+        params.put("screen_name", screenName);
+        // execute request
+        getClient().get(apiUrl, params, handler);
+    }
+
     // alternate getHomeTimeline function with parameter for max_id
-    public void getGenericTimelineWithLowestId(String type, long lowestId, AsyncHttpResponseHandler handler) {
+    public void getGenericTimelineForEndlessScroll(String type, long lowestId, AsyncHttpResponseHandler handler) {
         // String apiUrl = getApiUrl("statuses/home_timeline.json");
         String apiUrl = getApiUrlForType(type);
                 // specify params
@@ -78,13 +103,41 @@ public class TwitterClient extends OAuthBaseClient {
         getClient().get(apiUrl, params, handler);
     }
 
-    public void getGenericTimelineWithSinceId(String type, long sinceId, AsyncHttpResponseHandler handler) {
+    public void getUserTimelineForEndlessScroll(String type, String screenName, long lowestId, AsyncHttpResponseHandler handler) {
+        // String apiUrl = getApiUrl("statuses/home_timeline.json");
+        String apiUrl = getApiUrlForType(type);
+        // specify params
+        RequestParams params = new RequestParams();
+        params.put("screen_name", screenName);
+        params.put("count", numTweetsPerCall);
+        params.put("max_id", lowestId);
+        // params.put("since_id", sinceId);
+
+        // execute request
+        getClient().get(apiUrl, params, handler);
+    }
+
+    public void getGenericTimelineForRefresh(String type, long sinceId, AsyncHttpResponseHandler handler) {
         // String apiUrl = getApiUrl("statuses/home_timeline.json");
         // specify params
         String apiUrl = getApiUrlForType(type);
 
         RequestParams params = new RequestParams();
-        params.put("count", 3);
+        params.put("count", numTweetsForRefresh);
+        params.put("since_id", sinceId);
+
+        // execute request
+        getClient().get(apiUrl, params, handler);
+    }
+
+    public void getUserTimelineForRefresh(String type, String screenName, long sinceId, AsyncHttpResponseHandler handler) {
+        // String apiUrl = getApiUrl("statuses/home_timeline.json");
+        // specify params
+        String apiUrl = getApiUrlForType(type);
+
+        RequestParams params = new RequestParams();
+        params.put("screen_name", screenName);
+        params.put("count", numTweetsForRefresh);
         params.put("since_id", sinceId);
 
         // execute request

@@ -9,11 +9,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.codepath.apps.mysimpletweets.fragments.UserTimelineFragment;
+import com.codepath.apps.mysimpletweets.models.Tweet;
 import com.codepath.apps.mysimpletweets.models.User;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.squareup.picasso.Picasso;
 
-import org.json.JSONObject;
+import org.json.JSONArray;
+
+import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -26,20 +29,50 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         client = TwitterApp.getRestClient();
-        client.getUserInfo(new JsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                user = User.fromJSON(response);
-                String userName = user.getScreenName();
-                Log.d("debug", "screenname: " + userName);
-                setTitle(userName);
 
-                populateProfileHeader(user);
+        final String screenName = getIntent().getStringExtra("screen_name");
+
+        // need to format json response correctly  (this is the wrong place to do this)
+        client.getUserTimeline("user", screenName, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray json) {
+                Log.d("Debug", json.toString());
+                // deserialize json
+                // create models and add them to adapter
+                // load model data into listview
+                ArrayList<Tweet> tweets = Tweet.fromJSONArray(json);
+                if (tweets.size() > 0) {
+                    user = tweets.get(0).getUser();
+                    String userName = user.getScreenName();
+                    Log.d("debug", "screen_name: " + screenName + "userName: " + userName);
+                    setTitle(userName);
+
+                    populateProfileHeader(user);
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                super.onFailure(statusCode, headers, responseString, throwable);
+                Log.d("debug", responseString.toString());
             }
         });
 
+        // original code
+//        client.getUserInfo(new JsonHttpResponseHandler() {
+//            @Override
+//            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+//                user = User.fromJSON(response);
+//                String userName = user.getScreenName();
+//                Log.d("debug", "screen_name: " + screenName + "userName: " + userName);
+//                setTitle(userName);
+//
+//                populateProfileHeader(user);
+//            }
+//        });
+
         // get screen name from activity that laucnhes this
-        String screenName = getIntent().getStringExtra("screen_name");
+        // String screenName = getIntent().getStringExtra("screen_name");
 
         if (savedInstanceState == null) {
             // create the user timeline fragment

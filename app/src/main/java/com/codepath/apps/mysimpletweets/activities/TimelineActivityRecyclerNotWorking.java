@@ -67,8 +67,8 @@ package com.codepath.apps.mysimpletweets.activities;
 ////            public boolean onLoadMore(int page, int totalItemsCount) {
 ////                // Triggered only when new data needs to be appended to the list
 ////                // Add whatever code is needed to append new items to your AdapterView
-////                loadNextDataFromApi(page);
-////                // or loadNextDataFromApi(totalItemsCount);
+////                loadNextDataForEndlessScroll(page);
+////                // or loadNextDataForEndlessScroll(totalItemsCount);
 ////                return true; // ONLY if more data is actually being loaded; false otherwise.
 ////            }
 ////        });
@@ -180,7 +180,7 @@ package com.codepath.apps.mysimpletweets.activities;
 //    // used for endless scrolling
 //    // Append the next page of data into the adapter
 //    // This method probably sends out a network request and appends new data items to your adapter.
-//    public void loadNextDataFromApi(int offset) {
+//    public void loadNextDataForEndlessScroll(int offset) {
 //        // Send an API request to retrieve appropriate paginated data
 //        //  --> Send the request including an offset value (i.e `page`) as a query parameter.
 //        //  --> Deserialize and construct new model objects from the API response

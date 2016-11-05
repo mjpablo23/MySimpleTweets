@@ -22,6 +22,7 @@ public class UserTimelineFragment extends TweetsListFragment {
         super.onCreate(savedInstanceState);
 //        client = TwitterApp.getRestClient();  // singleton client
         super.fragmentType = "user";
+        super.screenNameClicked = getArguments().getString("screen_name");
         super.populateTimeline();
     }
 
@@ -35,4 +36,10 @@ public class UserTimelineFragment extends TweetsListFragment {
         return userFragment;
     }
 
+//    private void populateUserTimeline() {
+//        String screenName = getArguments().getString("screen_name");
+//        client.getUserTimeline("user", screenName, new JsonHttpResponseHandler() {
+//
+//        });
+//    }
 }
