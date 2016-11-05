@@ -1,6 +1,7 @@
 package com.codepath.apps.mysimpletweets;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.codepath.apps.mysimpletweets.models.Tweet;
+import com.codepath.apps.mysimpletweets.models.User;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -26,7 +28,7 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // 1. get the tweet
-        Tweet tweet = getItem(position);
+        final Tweet tweet = getItem(position);
         // 2. find or inflate the template
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_tweet, parent, false);
@@ -53,8 +55,25 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
 
         ivProfileImage.setImageResource(android.R.color.transparent);  // clear out the old image for a recycled view
         Picasso.with(getContext()).load(tweet.getUser().getProfileImageUrl()).into(ivProfileImage);
+
+        ivProfileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoProfileForUser(tweet.getUser());
+            }
+        });
+
         // 5. return the view to be inserted into the list
         return convertView;
     }
+
+    public void gotoProfileForUser(User u) {
+        Log.d("debug", "clicked on image for user: " + u.getName());
+    }
+
+//    public void onProfileView(MenuItem mi) {
+//        Intent i = new Intent(this, ProfileActivity.class);
+//        startActivity(i);
+//    }
 
 }

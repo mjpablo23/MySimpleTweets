@@ -153,41 +153,6 @@ public class TweetsListFragment extends Fragment {
         });
     }
 
-//        // used for endless scrolling
-//    // Append the next page of data into the adapter
-//    // This method probably sends out a network request and appends new data items to your adapter.
-//    public void loadNextDataFromApi(long offset) {
-//
-//        client.getHomeTimelineWithLowestId(offset, new JsonHttpResponseHandler() {
-//            // success
-//
-//            @Override
-//            public void onSuccess(int statusCode, Header[] headers, JSONArray json) {
-//                Log.d("Debug", json.toString());
-//                // deserialize json
-//                // create models and add them to adapter
-//                // load model data into listview
-//                ArrayList<Tweet> tweets = Tweet.fromJSONArray(json);
-//
-//                // find lowest id from tweets, as max_id
-//                if (tweets.size() > 0) {
-//                    Tweet t = tweets.get(tweets.size() - 1);  // last element in ArrayList
-//                    lowestId = t.getUid();
-//                    // sinceId = tweets.get(0).getUid();
-//                    Log.d("debug", "maxId: " + lowestId);
-//                    aTweets.addAll(tweets);
-//                }
-//            }
-//
-//            // failure
-//
-//            @Override
-//            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-//                Log.d("Debug", errorResponse.toString());
-//            }
-//            // this call has lowestId as second argument, subtract 1 as described in documentation
-//        });
-//    }
 
     // ---------- pull to refresh ------------------
     public void startPullToRefreshListener(View v) {
@@ -220,63 +185,11 @@ public class TweetsListFragment extends Fragment {
         aTweets.clear();
     }
 
-//    public void  populateTimeline() {
-//        if (fragmentType.equals("home")) {
-//            populateHomeTimeline();
-//        }
-//        else if (fragmentType.equals("mentions")) {
-//            populateMentionsTimeline();
-//        }
-//        else if (fragmentType.equals("user")) {
-//            populateUserTimeline();
-//        }
-//        else {
-//            Log.d("debug", "populateTimeline error");
-//        }
-//    }
-
     public void  populateTimeline() {
         populateGenericTimeline();
     }
 
-    // send api request to get timeline json
-    // fill listview by creating tweet objects from json
-    public void populateHomeTimeline() {
-        // at 45:23 in video
-        client.getHomeTimeline(new JsonHttpResponseHandler() {
-            // success
 
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONArray json) {
-                Log.d("Debug", json.toString());
-                // deserialize json
-                // create models and add them to adapter
-                // load model data into listview
-
-                clear();
-
-                ArrayList<Tweet> tweets = Tweet.fromJSONArray(json);
-
-                // https://dev.twitter.com/rest/public/timelines
-                // find lowest id from tweets, as max_id
-                Tweet t = tweets.get(tweets.size()-1);  // last element in ArrayList
-                lowestId = t.getUid();
-                sinceId = tweets.get(1).getUid();
-                Log.d("debug", "maxId: " + lowestId);
-
-                addAll(tweets);
-
-                lvTweets.smoothScrollToPosition(0);
-            }
-
-            // failure
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                Log.d("Debug", errorResponse.toString());
-            }
-        });
-    }
 
     public void populateGenericTimeline() {
         // at 45:23 in video
@@ -293,16 +206,16 @@ public class TweetsListFragment extends Fragment {
                 clear();
 
                 ArrayList<Tweet> tweets = Tweet.fromJSONArray(json);
+                if (tweets.size() > 0) {
+                    // https://dev.twitter.com/rest/public/timelines
+                    // find lowest id from tweets, as max_id
+                    Tweet t = tweets.get(tweets.size() - 1);  // last element in ArrayList
+                    lowestId = t.getUid();
+                    sinceId = tweets.get(1).getUid();
+                    Log.d("debug", "maxId: " + lowestId);
 
-                // https://dev.twitter.com/rest/public/timelines
-                // find lowest id from tweets, as max_id
-                Tweet t = tweets.get(tweets.size()-1);  // last element in ArrayList
-                lowestId = t.getUid();
-                sinceId = tweets.get(1).getUid();
-                Log.d("debug", "maxId: " + lowestId);
-
-                addAll(tweets);
-
+                    addAll(tweets);
+                }
                 lvTweets.smoothScrollToPosition(0);
             }
 
@@ -335,121 +248,26 @@ public class TweetsListFragment extends Fragment {
         });
     }
 
-//    public void populateHomeTimelineWithSinceId() {
-//        // at 45:23 in video
-//        client.getHomeTimelineWithSinceId(sinceId, new JsonHttpResponseHandler() {
-//            // success
-//
-//            @Override
-//            public void onSuccess(int statusCode, Header[] headers, JSONArray json) {
-//                Log.d("Debug", json.toString());
-//                // deserialize json
-//                showNewestTweets(json);
-//            }
-//
-//            // failure
-//            @Override
-//            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-//                Log.d("Debug", errorResponse.toString());
-//            }
-//        });
-//    }
-
     public void showNewestTweets(JSONArray json) {
         ArrayList<Tweet> tweets = Tweet.fromJSONArray(json);
 
         // https://dev.twitter.com/rest/public/timelines
         // find lowest id from tweets, as max_id
         Log.d("debug", "num tweets retrieved: " + tweets.size());
-        Tweet t = tweets.get(0);  // last element in ArrayList
+        if (tweets.size() > 0) {
+            Tweet t = tweets.get(0);  // last element in ArrayList
 //                lowestId = t.getUid();
-        sinceId = tweets.get(0).getUid();
-        Log.d("debug", "maxId: " + lowestId);
+            sinceId = tweets.get(0).getUid();
+            Log.d("debug", "maxId: " + lowestId);
 
-        // addAll(tweets);
-        aTweets.insert(t, 0);
-        aTweets.notifyDataSetChanged();
-
+            // addAll(tweets);
+            aTweets.insert(t, 0);
+            aTweets.notifyDataSetChanged();
+        }
         lvTweets.smoothScrollToPosition(0);
     }
 
-    // send api request to get timeline json
-    // fill listview by creating tweet objects from json
-    public void populateMentionsTimeline() {
-        // at 45:23 in video
-        client.getMentionsTimeline(new JsonHttpResponseHandler() {
-            // success
 
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONArray json) {
-                Log.d("Debug", json.toString());
-                // deserialize json
-                // create models and add them to adapter
-                // load model data into listview
-
-                clear();
-
-                ArrayList<Tweet> tweets = Tweet.fromJSONArray(json);
-
-                // https://dev.twitter.com/rest/public/timelines
-                // find lowest id from tweets, as max_id
-                Tweet t = tweets.get(tweets.size()-1);  // last element in ArrayList
-                lowestId = t.getUid();
-                sinceId = tweets.get(1).getUid();
-
-                addAll(tweets);
-
-                lvTweets.smoothScrollToPosition(0);
-            }
-
-            // failure
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                Log.d("Debug", errorResponse.toString());
-            }
-        });
-    }
-
-    // move calls to populate timeline into the TweetsListFragment
-    // send api request to get timeline json
-    // fill listview by creating tweet objects from json
-    protected void populateUserTimeline() {
-        String screenName = getArguments().getString("screen_name");
-        // at 45:23 in video
-        client.getUserTimeline(screenName, new JsonHttpResponseHandler() {
-            // success
-
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONArray json) {
-                Log.d("Debug", json.toString());
-                // deserialize json
-                // create models and add them to adapter
-                // load model data into listview
-
-                clear();
-
-                ArrayList<Tweet> tweets = Tweet.fromJSONArray(json);
-
-                // https://dev.twitter.com/rest/public/timelines
-                // find lowest id from tweets, as max_id
-                Tweet t = tweets.get(tweets.size()-1);  // last element in ArrayList
-                lowestId = t.getUid();
-                sinceId = tweets.get(1).getUid();
-
-                addAll(tweets);
-
-                lvTweets.smoothScrollToPosition(0);
-            }
-
-            // failure
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                Log.d("Debug", errorResponse.toString());
-            }
-        });
-    }
 
     // for pull to refresh
     protected void fetchTimelineAsync(int page) {
@@ -458,12 +276,4 @@ public class TweetsListFragment extends Fragment {
         swipeContainer.setRefreshing(false);
     }
 
-//    //    @Override
-//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == REQUEST_CODE_COMPOSE) {
-//            // refresh timeline
-//            populateHomeTimelineWithSinceId();
-//        }
-//    }
 }

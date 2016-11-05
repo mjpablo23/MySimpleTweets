@@ -152,6 +152,10 @@ public class User implements Parcelable {
         dest.writeString(this.screenName);
         dest.writeString(this.profileImageUrl);
         dest.writeLong(this.uid);
+        dest.writeString(this.tagline);
+        dest.writeInt(this.followersCount);
+        dest.writeInt(this.followingsCount);
+        dest.writeString(this.backgroundImageUrl);
     }
 
     protected User(Parcel in) {
@@ -159,6 +163,10 @@ public class User implements Parcelable {
         this.screenName= in.readString();
         this.profileImageUrl = in.readString();
         this.uid = in.readLong();
+        this.tagline = in.readString();
+        this.followersCount = in.readInt();
+        this.followingsCount = in.readInt();
+        this.backgroundImageUrl = in.readString();
     }
 
     public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>() {

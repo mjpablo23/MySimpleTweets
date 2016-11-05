@@ -31,7 +31,7 @@ public class TwitterClient extends OAuthBaseClient {
 	public static final String REST_CONSUMER_SECRET = "QzqQfpRxiEGBfp79nrznEEadlmbNBbsuUdugLAFEJI9wKvmdOX"; // Change this
 	public static final String REST_CALLBACK_URL = "oauth://cpsimpletweets"; // Change this (here and in manifest)
 
-    private int numTweetsPerCall = 10;
+    private int numTweetsPerCall = 30;
 
 	public TwitterClient(Context context) {
 		super(context, REST_API_CLASS, REST_URL, REST_CONSUMER_KEY, REST_CONSUMER_SECRET, REST_CALLBACK_URL);
@@ -53,43 +53,6 @@ public class TwitterClient extends OAuthBaseClient {
         }
         return apiUrl;
     }
-
-	// method for endpoint
-//	GET statuses/home_timeline.json
-	public void getHomeTimeline(AsyncHttpResponseHandler handler) {
-		String apiUrl = getApiUrl("statuses/home_timeline.json");
-		// specify params
-		RequestParams params = new RequestParams();
-		params.put("count", numTweetsPerCall);
-		// execute request
-		getClient().get(apiUrl, params, handler);
-	}
-
-    // alternate getHomeTimeline function with parameter for max_id
-    public void getHomeTimelineWithLowestId(long lowestId, AsyncHttpResponseHandler handler) {
-        String apiUrl = getApiUrl("statuses/home_timeline.json");
-        // specify params
-        RequestParams params = new RequestParams();
-        params.put("count", numTweetsPerCall);
-        params.put("max_id", lowestId);
-		// params.put("since_id", sinceId);
-
-        // execute request
-        getClient().get(apiUrl, params, handler);
-    }
-
-//    // alternate getHomeTimeline function with parameter for max_id
-//    public void getHomeTimelineWithSinceId(long sinceId, AsyncHttpResponseHandler handler) {
-//        String apiUrl = getApiUrl("statuses/home_timeline.json");
-//        // specify params
-//        RequestParams params = new RequestParams();
-//        params.put("count", 3);
-////        params.put("max_id", lowestId);
-//         params.put("since_id", sinceId);
-//
-//        // execute request
-//        getClient().get(apiUrl, params, handler);
-//    }
 
     public void getGenericTimeline(String type, AsyncHttpResponseHandler handler) {
         // String apiUrl = getApiUrl("statuses/home_timeline.json");
@@ -139,31 +102,6 @@ public class TwitterClient extends OAuthBaseClient {
         getClient().post(apiUrl, params, handler);
     }
 
-	public void getMentionsTimeline(AsyncHttpResponseHandler handler) {
-		String apiUrl = getApiUrl("statuses/mentions_timeline.json");
-		// specify params
-		RequestParams params = new RequestParams();
-		params.put("count", numTweetsPerCall);
-		params.put("since_id", 1);
-
-		// execute request
-		getClient().get(apiUrl, params, handler);
-	}
-
-    public void getUserTimeline(AsyncHttpResponseHandler handler) {
-        getUserTimeline("", handler);
-    }
-
-    public void getUserTimeline(String screenName, AsyncHttpResponseHandler handler) {
-        String apiUrl = getApiUrl("statuses/user_timeline.json");
-        // specify params
-        RequestParams params = new RequestParams();
-        params.put("count", numTweetsPerCall);
-        if (screenName != null && !screenName.isEmpty()) {
-            params.put("screen_name", screenName);
-        }
-        getClient().get(apiUrl, params, handler);
-    }
 
     public void getUserInfo(AsyncHttpResponseHandler handler) {
         String apiUrl = getApiUrl("account/verify_credentials.json");

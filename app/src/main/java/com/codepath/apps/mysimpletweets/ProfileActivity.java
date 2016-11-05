@@ -62,7 +62,11 @@ public class ProfileActivity extends AppCompatActivity {
         ImageView ivProfileImage = (ImageView) findViewById(R.id.ivProfileImage);
         tvName.setText(user.getName());
         tvTagLine.setText(user.getTagline());
+        int followers = user.getFollowersCount();
+        int following = user.getFollowingsCount();
         Picasso.with(this).load(user.getProfileImageUrl()).into(ivProfileImage);
+        tvFollowers.setText(followers + " followers");
+        tvFollowing.setText(following + " following");
     }
 
     @Override
@@ -71,10 +75,4 @@ public class ProfileActivity extends AppCompatActivity {
         return true;
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        int id = item.getItemId();
-//
-//        return super.onOptionsItemSelected(item);
-//    }
 }

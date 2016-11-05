@@ -1,19 +1,6 @@
 package com.codepath.apps.mysimpletweets.fragments;
 
 import android.os.Bundle;
-import android.util.Log;
-
-import com.codepath.apps.mysimpletweets.TwitterApp;
-import com.codepath.apps.mysimpletweets.TwitterClient;
-import com.codepath.apps.mysimpletweets.models.Tweet;
-import com.loopj.android.http.JsonHttpResponseHandler;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-
-import cz.msebera.android.httpclient.Header;
 
 /**
  * Created by paulyang on 11/2/16.
@@ -35,7 +22,7 @@ public class UserTimelineFragment extends TweetsListFragment {
         super.onCreate(savedInstanceState);
 //        client = TwitterApp.getRestClient();  // singleton client
         super.fragmentType = "user";
-        super.populateUserTimeline();
+        super.populateTimeline();
     }
 
     // Creates a new fragment given an int and title
