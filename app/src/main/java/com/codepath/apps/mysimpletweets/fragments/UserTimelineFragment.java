@@ -23,6 +23,9 @@ public class UserTimelineFragment extends TweetsListFragment {
 //        client = TwitterApp.getRestClient();  // singleton client
         super.fragmentType = "user";
         super.screenNameClicked = getArguments().getString("screen_name");
+        if (super.screenNameClicked == null) {
+            super.screenNameClicked = "";
+        }
         super.populateTimeline();
     }
 
