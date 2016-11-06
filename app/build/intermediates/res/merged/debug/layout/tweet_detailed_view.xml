@@ -46,4 +46,11 @@
         android:text="body"
         android:autoLink="all"/>
 
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/profileImageViewSmall"
+        android:layout_alignBottom="@+id/detailImageView"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

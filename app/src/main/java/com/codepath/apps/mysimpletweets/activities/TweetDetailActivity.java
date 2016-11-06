@@ -24,7 +24,8 @@ public class TweetDetailActivity extends AppCompatActivity {
     @BindView(R.id.screenNameTextView) TextView screenname;
     @BindView(R.id.nameText) TextView name;
     @BindView(R.id.detailTimestamp) TextView timestamp;
-    @BindView(R.id.detailImageView) ImageView ivProfileImage;
+    @BindView(R.id.detailImageView) ImageView ivBackgroundImage;
+    @BindView(R.id.profileImageViewSmall) ImageView ivProfileImage;
 
     private static Context context;
 
@@ -48,8 +49,10 @@ public class TweetDetailActivity extends AppCompatActivity {
         context = getApplicationContext();
 
         // ivProfileImage.setImageResource(android.R.color.transparent);  // clear out the old image for a recycled view
-        String url = u.getProfileImageUrl();
-        Log.d("debug", url);
-        Picasso.with(context).load(url).into(ivProfileImage);
+        String profileImageUrl = u.getProfileImageUrl();
+        String backgroundImageUrl = u.getBackgroundImageUrl();
+        Log.d("debug", backgroundImageUrl);
+        Picasso.with(context).load(backgroundImageUrl).into(ivBackgroundImage);
+        Picasso.with(context).load(profileImageUrl).into(ivProfileImage);
     }
 }

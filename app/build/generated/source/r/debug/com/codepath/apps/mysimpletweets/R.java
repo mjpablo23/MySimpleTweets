@@ -2691,7 +2691,7 @@ containing a value of this type.
         public static final int action_bar_spinner=0x7f0b0001;
         public static final int action_bar_subtitle=0x7f0b003e;
         public static final int action_bar_title=0x7f0b003d;
-        public static final int action_compose=0x7f0b009d;
+        public static final int action_compose=0x7f0b009e;
         public static final int action_context_bar=0x7f0b005f;
         public static final int action_divider=0x7f0b008f;
         public static final int action_menu_divider=0x7f0b0002;
@@ -2761,7 +2761,7 @@ containing a value of this type.
         public static final int llCounts=0x7f0b0074;
         public static final int lvTweets=0x7f0b0086;
         public static final int media_actions=0x7f0b008e;
-        public static final int miProfile=0x7f0b009e;
+        public static final int miProfile=0x7f0b009f;
         public static final int middle=0x7f0b0035;
         public static final int mini=0x7f0b0033;
         public static final int multiply=0x7f0b001b;
@@ -2775,6 +2775,7 @@ containing a value of this type.
         public static final int parentPanel=0x7f0b0049;
         public static final int pin=0x7f0b002d;
         public static final int postButton=0x7f0b006f;
+        public static final int profileImageViewSmall=0x7f0b009d;
         public static final int progress_circular=0x7f0b0006;
         public static final int progress_horizontal=0x7f0b0007;
         public static final int radio=0x7f0b0057;

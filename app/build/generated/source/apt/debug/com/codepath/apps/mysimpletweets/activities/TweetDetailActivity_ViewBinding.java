@@ -23,7 +23,8 @@ public class TweetDetailActivity_ViewBinding<T extends TweetDetailActivity> impl
     target.screenname = Utils.findRequiredViewAsType(source, R.id.screenNameTextView, "field 'screenname'", TextView.class);
     target.name = Utils.findRequiredViewAsType(source, R.id.nameText, "field 'name'", TextView.class);
     target.timestamp = Utils.findRequiredViewAsType(source, R.id.detailTimestamp, "field 'timestamp'", TextView.class);
-    target.ivProfileImage = Utils.findRequiredViewAsType(source, R.id.detailImageView, "field 'ivProfileImage'", ImageView.class);
+    target.ivBackgroundImage = Utils.findRequiredViewAsType(source, R.id.detailImageView, "field 'ivBackgroundImage'", ImageView.class);
+    target.ivProfileImage = Utils.findRequiredViewAsType(source, R.id.profileImageViewSmall, "field 'ivProfileImage'", ImageView.class);
   }
 
   @Override
@@ -36,6 +37,7 @@ public class TweetDetailActivity_ViewBinding<T extends TweetDetailActivity> impl
     target.screenname = null;
     target.name = null;
     target.timestamp = null;
+    target.ivBackgroundImage = null;
     target.ivProfileImage = null;
 
     this.target = null;
