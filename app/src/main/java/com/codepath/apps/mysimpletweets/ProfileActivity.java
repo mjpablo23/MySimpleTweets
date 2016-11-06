@@ -29,32 +29,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         final String screenName = getIntent().getStringExtra("screen_name");
 
-        // need to format json response correctly
-//        client.getUserTimeline("user", screenName, new JsonHttpResponseHandler() {
-//            @Override
-//            public void onSuccess(int statusCode, Header[] headers, JSONArray json) {
-//                Log.d("Debug", json.toString());
-//                // deserialize json
-//                // create models and add them to adapter
-//                // load model data into listview
-//                ArrayList<Tweet> tweets = Tweet.fromJSONArray(json);
-//                if (tweets.size() > 0) {
-//                    user = tweets.get(0).getUser();
-//                    String userName = user.getScreenName();
-//                    Log.d("debug", "screen_name: " + screenName + "userName: " + userName);
-//                    setTitle(userName);
-//
-//                    populateProfileHeader(user);
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-//                super.onFailure(statusCode, headers, responseString, throwable);
-//                Log.d("debug", responseString.toString());
-//            }
-//        });
-
         // original code
         if (screenName == null) {
             client.getUserInfoForSelf(new JsonHttpResponseHandler() {

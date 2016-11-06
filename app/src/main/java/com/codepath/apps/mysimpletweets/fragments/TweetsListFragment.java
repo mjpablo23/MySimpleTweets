@@ -37,6 +37,9 @@ import cz.msebera.android.httpclient.Header;
  */
 public class TweetsListFragment extends Fragment {
 
+    //public Context parentContext;
+    public Boolean hasInter = true;
+
     public ArrayList<Tweet> tweets;
     public TweetsArrayAdapter aTweets;
     public ListView lvTweets;
@@ -145,6 +148,10 @@ public class TweetsListFragment extends Fragment {
     // This method probably sends out a network request and appends new data items to your adapter.
     public void loadNextDataForEndlessScroll(long offset) {
 
+        if (!hasInternet()) {
+            return;
+        }
+
         if (screenNameClicked.isEmpty()) {
 
             client.getGenericTimelineForEndlessScroll(fragmentType, offset, new JsonHttpResponseHandler() {
@@ -242,6 +249,10 @@ public class TweetsListFragment extends Fragment {
 
 
     public void populateTimeline() {
+//        if (!hasInternet()) {
+//            return;
+//        }
+
         // at 45:23 in video
         if (screenNameClicked.isEmpty()) {
             client.getGenericTimeline(fragmentType, new JsonHttpResponseHandler() {
@@ -274,7 +285,9 @@ public class TweetsListFragment extends Fragment {
 
                 @Override
                 public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                    Log.d("Debug", errorResponse.toString());
+                    if (errorResponse != null) {
+                        Log.d("Debug", errorResponse.toString());
+                    }
                 }
             });
         }
@@ -309,7 +322,9 @@ public class TweetsListFragment extends Fragment {
 
                 @Override
                 public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                    Log.d("Debug", errorResponse.toString());
+                    if (errorResponse != null) {
+                        Log.d("Debug", errorResponse.toString());
+                    }
                 }
             });
         }
@@ -317,6 +332,11 @@ public class TweetsListFragment extends Fragment {
 
     public void populateGenericTimelineWithSinceId() {
         // at 45:23 in video
+
+        if (!hasInternet()) {
+            return;
+        }
+
         if(screenNameClicked.isEmpty()) {
             client.getGenericTimelineForRefresh(fragmentType, sinceId, new JsonHttpResponseHandler() {
                 // success
@@ -377,8 +397,34 @@ public class TweetsListFragment extends Fragment {
     // for pull to refresh
     protected void fetchTimelineAsync(int page) {
 
+        if (!hasInternet()) {
+            return;
+        }
+
         populateTimeline();
         swipeContainer.setRefreshing(false);
     }
+
+    public Boolean hasInternet() {
+        return hasInter;
+    }
+//
+//    private Boolean isNetworkAvailable() {
+//        ConnectivityManager connectivityManager
+//                = (ConnectivityManager) parentContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+//        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+//        return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
+//    }
+//
+//    public boolean isOnline() {
+//        Runtime runtime = Runtime.getRuntime();
+//        try {
+//            Process ipProcess = runtime.exec("/system/bin/ping -c 1 8.8.8.8");
+//            int     exitValue = ipProcess.waitFor();
+//            return (exitValue == 0);
+//        } catch (IOException e)          { e.printStackTrace(); }
+//        catch (InterruptedException e) { e.printStackTrace(); }
+//        return false;
+//    }
 
 }

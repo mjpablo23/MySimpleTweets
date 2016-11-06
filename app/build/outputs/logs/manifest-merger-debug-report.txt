@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:2:1-67:12
+ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:2:1-68:12
 	package
 		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:3:5-47
 		INJECTED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml
@@ -45,20 +45,24 @@ uses-permission#android.permission.INTERNET
 ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:9:5-67
 	android:name
 		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:9:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:10:5-79
+	android:name
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:10:22-76
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:10:5-81
+ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:11:5-81
 	android:name
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:10:22-78
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:11:22-78
 android:uses-permission#android.permission.READ_PHONE_STATE
-ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:12:5-83
+ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:13:5-83
 	android:name
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:12:30-80
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:13:30-80
 android:uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:13:5-88
+ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:14:5-88
 	android:name
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:13:30-85
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:14:30-85
 application
-ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:15:5-65:19
+ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:16:5-66:19
 MERGED from [com.github.Raizlabs.DBFlow:dbflow:3.1.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.github.Raizlabs.DBFlow/dbflow/3.1.1/AndroidManifest.xml:11:5-20
 MERGED from [com.android.support:design:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:appcompat-v7:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/AndroidManifest.xml:25:5-20
@@ -72,94 +76,94 @@ MERGED from [com.android.support:support-core-ui:24.2.1] /Users/paulyang/Android
 MERGED from [com.android.support:support-core-utils:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-compat:24.2.1] /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
 	android:label
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:19:9-41
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:20:9-41
 	android:allowBackup
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:17:9-35
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:18:9-35
 	android:icon
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:18:9-45
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:19:9-45
 	android:theme
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:20:9-40
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:21:9-40
 	android:name
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:16:9-35
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:17:9-35
 meta-data#AA_DB_NAME
-ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:21:9-23:45
+ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:22:9-24:45
 	android:value
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:23:13-42
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:24:13-42
 	android:name
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:22:13-38
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:23:13-38
 meta-data#AA_DB_VERSION
-ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:24:9-26:33
+ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:25:9-27:33
 	android:value
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:26:13-30
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:27:13-30
 	android:name
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:25:13-41
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:26:13-41
 activity#com.codepath.apps.mysimpletweets.activities.LoginActivity
-ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:28:9-47:20
+ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:29:9-48:20
 	android:label
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:30:13-45
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:31:13-45
 	android:theme
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:31:13-44
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:32:13-44
 	android:name
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:29:13-53
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:30:13-53
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:32:13-36:29
+ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:33:13-37:29
 action#android.intent.action.MAIN
-ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:33:17-69
+ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:34:17-69
 	android:name
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:33:25-66
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:34:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:35:17-77
+ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:36:17-77
 	android:name
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:35:27-74
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:36:27-74
 intent-filter#android.intent.action.VIEW+android.intent.category.BROWSABLE+android.intent.category.DEFAULT
-ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:37:13-46:29
+ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:38:13-47:29
 action#android.intent.action.VIEW
-ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:38:17-69
+ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:39:17-69
 	android:name
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:38:25-66
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:39:25-66
 category#android.intent.category.DEFAULT
-ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:40:17-76
+ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:41:17-76
 	android:name
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:40:27-73
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:41:27-73
 category#android.intent.category.BROWSABLE
-ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:41:17-78
+ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:42:17-78
 	android:name
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:41:27-75
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:42:27-75
 data
-ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:43:17-45:46
+ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:44:17-46:46
 	android:host
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:44:21-50
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:45:21-50
 	android:scheme
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:45:21-43
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:46:21-43
 activity#com.codepath.apps.mysimpletweets.activities.TimelineActivity
-ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:48:9-51:59
+ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:49:9-52:59
 	android:label
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:50:13-60
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:51:13-60
 	android:theme
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:51:13-56
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:52:13-56
 	android:name
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:49:13-56
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:50:13-56
 activity#com.codepath.apps.mysimpletweets.activities.ComposeActivity
-ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:52:9-55:59
+ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:53:9-56:59
 	android:label
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:54:13-59
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:55:13-59
 	android:theme
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:55:13-56
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:56:13-56
 	android:name
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:53:13-55
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:54:13-55
 activity#com.codepath.apps.mysimpletweets.activities.TweetDetailActivity
-ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:56:9-59:59
+ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:57:9-60:59
 	android:label
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:58:13-64
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:59:13-64
 	android:theme
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:59:13-56
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:60:13-56
 	android:name
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:57:13-59
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:58:13-59
 activity#com.codepath.apps.mysimpletweets.ProfileActivity
-ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:60:9-63:59
+ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:61:9-64:59
 	android:label
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:62:13-59
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:63:13-59
 	android:theme
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:63:13-56
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:64:13-56
 	android:name
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:61:13-44
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:62:13-44

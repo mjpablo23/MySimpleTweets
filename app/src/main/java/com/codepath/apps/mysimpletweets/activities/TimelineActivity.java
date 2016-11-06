@@ -1,6 +1,9 @@
 package com.codepath.apps.mysimpletweets.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.codepath.apps.mysimpletweets.ProfileActivity;
@@ -18,6 +22,8 @@ import com.codepath.apps.mysimpletweets.fragments.HomeTimelineFragment;
 import com.codepath.apps.mysimpletweets.fragments.MentionsTimelineFragment;
 import com.codepath.apps.mysimpletweets.fragments.SmartFragmentStatePagerAdapter;
 import com.codepath.apps.mysimpletweets.fragments.TweetsListFragment;
+
+import java.io.IOException;
 
 public class TimelineActivity extends AppCompatActivity {
 
@@ -32,6 +38,8 @@ public class TimelineActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timeline);
 
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -45,14 +53,20 @@ public class TimelineActivity extends AppCompatActivity {
         // attach the tabstrip to the view pager
         tabStrip.setViewPager(vpPager);
 
-
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
         getMenuInflater().inflate(R.menu.menu_timeline, menu);
         MenuItem composeItem = menu.findItem(R.id.action_compose);
+
+        if (!hasInternet()) {
+            Toast.makeText(getApplicationContext(), "No internet", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
         composeItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -125,6 +139,7 @@ public class TimelineActivity extends AppCompatActivity {
 
             for (int i=0; i < tweetsPagerAdapter.getCount(); i++) {
                 TweetsListFragment tf = (TweetsListFragment) tweetsPagerAdapter.getRegisteredFragment(i);
+                tf.hasInter = hasInternet();
                 tf.populateGenericTimelineWithSinceId();
             }
 
@@ -132,4 +147,28 @@ public class TimelineActivity extends AppCompatActivity {
 //            tf.populateHomeTimelineWithSinceId();
         }
     }
+
+
+    public Boolean hasInternet() {
+        return (isNetworkAvailable() && isOnline());
+    }
+
+    private Boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
+    }
+
+    public boolean isOnline() {
+        Runtime runtime = Runtime.getRuntime();
+        try {
+            Process ipProcess = runtime.exec("/system/bin/ping -c 1 8.8.8.8");
+            int     exitValue = ipProcess.waitFor();
+            return (exitValue == 0);
+        } catch (IOException e)          { e.printStackTrace(); }
+        catch (InterruptedException e) { e.printStackTrace(); }
+        return false;
+    }
+
 }
