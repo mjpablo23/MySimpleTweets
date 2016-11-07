@@ -80,7 +80,7 @@ MERGED from [com.android.support:support-compat:24.2.1] /Users/paulyang/AndroidS
 	android:allowBackup
 		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:18:9-35
 	android:icon
-		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:19:9-45
+		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:19:9-47
 	android:theme
 		ADDED from /Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:21:9-40
 	android:name

@@ -7,14 +7,12 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.astuetz.PagerSlidingTabStrip;
@@ -33,7 +31,7 @@ public class TimelineActivity extends AppCompatActivity {
     private final int REQUEST_CODE_COMPOSE = 20;
 
     // Instance of the progress action-view
-    MenuItem miActionProgressItem;
+//    MenuItem miActionProgressItem;
 
     // pager adapter
     TweetsPagerAdapter tweetsPagerAdapter;
@@ -61,12 +59,13 @@ public class TimelineActivity extends AppCompatActivity {
 
     }
 
+    // put into fragment --> onCreateOptionsMenu (too late), use viewCreated instead
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         // Store instance of the menu item containing progress
-        miActionProgressItem = menu.findItem(R.id.miActionProgress);
-        // Extract the action-view from the menu item
-        ProgressBar v =  (ProgressBar) MenuItemCompat.getActionView(miActionProgressItem);
+//        miActionProgressItem = menu.findItem(R.id.miActionProgress);
+//        // Extract the action-view from the menu item
+//        ProgressBar v =  (ProgressBar) MenuItemCompat.getActionView(miActionProgressItem);
         // Return to finish
         return super.onPrepareOptionsMenu(menu);
     }
@@ -122,12 +121,12 @@ public class TimelineActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             if (position == 0) {
                 HomeTimelineFragment h = new HomeTimelineFragment();
-                h.miActionProgressItem = miActionProgressItem;
+//                h.miActionProgressItem = miActionProgressItem;
                 return h;
             }
             else if (position == 1) {
                 MentionsTimelineFragment m = new MentionsTimelineFragment();
-                m.miActionProgressItem = miActionProgressItem;
+//                m.miActionProgressItem = miActionProgressItem;
                 return m;
             }
             else {
@@ -153,21 +152,12 @@ public class TimelineActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && requestCode == REQUEST_CODE_COMPOSE) {
             // refresh timeline
-//            TweetsListFragment tf = (TweetsListFragment) tweetsPagerAdapter.getRegisteredFragment(vpPager.getCurrentItem());
-//            tf.populateTimeline();
-
-            miActionProgressItem.setVisible(true);
 
             for (int i=0; i < tweetsPagerAdapter.getCount(); i++) {
                 TweetsListFragment tf = (TweetsListFragment) tweetsPagerAdapter.getRegisteredFragment(i);
                 tf.hasInter = hasInternet();
                 tf.populateGenericTimelineWithSinceId();
             }
-
-            miActionProgressItem.setVisible(false);
-
-//            TweetsListFragment tf = (TweetsListFragment) tweetsPagerAdapter.getRegisteredFragment(0);
-//            tf.populateHomeTimelineWithSinceId();
         }
     }
 

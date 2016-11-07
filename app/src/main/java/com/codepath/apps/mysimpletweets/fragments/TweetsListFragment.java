@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import com.codepath.apps.mysimpletweets.ProfileActivity;
 import com.codepath.apps.mysimpletweets.R;
@@ -141,6 +143,15 @@ public class TweetsListFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
+
+        miActionProgressItem = menu.findItem(R.id.miActionProgress);
+        // Extract the action-view from the menu item
+        ProgressBar v =  (ProgressBar) MenuItemCompat.getActionView(miActionProgressItem);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
     }
 
     // ----------- endless scrolling ------------
@@ -167,6 +178,7 @@ public class TweetsListFragment extends Fragment {
             return;
         }
 
+        showProgressBar();
         if (screenNameClicked.isEmpty()) {
 
             client.getGenericTimelineForEndlessScroll(fragmentType, offset, new JsonHttpResponseHandler() {
@@ -228,6 +240,7 @@ public class TweetsListFragment extends Fragment {
                 // this call has lowestId as second argument, subtract 1 as described in documentation
             });
         }
+        hideProgressBar();
     }
 
 
