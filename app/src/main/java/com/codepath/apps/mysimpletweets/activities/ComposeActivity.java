@@ -31,6 +31,10 @@ public class ComposeActivity extends AppCompatActivity {
 
     int numCharsLeft = 140;
 
+    boolean isReply = false;
+    String screenName = null;
+    String uid = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +42,14 @@ public class ComposeActivity extends AppCompatActivity {
 
         tweetText = (EditText) findViewById(R.id.editTextCompose);
         charsLeft = (TextView) findViewById(R.id.textViewCharactersRemaining);
+
+        screenName = getIntent().getStringExtra("screen_name");
+        uid = getIntent().getStringExtra("uid");
+
+        if (screenName != null) {
+            isReply = true;
+            tweetText.setText("@" + screenName);
+        }
 
         // listener for editText
         tweetText.addTextChangedListener(mTextEditorWatcher);
@@ -49,9 +61,36 @@ public class ComposeActivity extends AppCompatActivity {
 
     // post to timeline using twitter client's put method
     private void postToTimeline(String tweet) {
-        client.makePost(new JsonHttpResponseHandler() {
-            // need to handle json response or not?
+        if (!isReply) {
+            client.makePost(new JsonHttpResponseHandler() {
+                // need to handle json response or not?
 
+
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                    super.onSuccess(statusCode, headers, response);
+                    Log.d("Debug", response.toString());
+                    finish();
+                }
+
+                // failure
+                @Override
+                public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                    Log.d("Debug", errorResponse.toString());
+                    Toast.makeText(getApplicationContext(), "error posting", Toast.LENGTH_LONG).show();
+                    finish();
+                }
+
+            }, tweet);
+        }
+        else {
+            replyToPost(tweet, uid);
+        }
+    }
+
+    private void replyToPost(String tweet, String replyToStatusId) {
+        client.makeReply(tweet, replyToStatusId, new JsonHttpResponseHandler() {
+            // need to handle json response or not?
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -67,8 +106,7 @@ public class ComposeActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "error posting", Toast.LENGTH_LONG).show();
                 finish();
             }
-
-        }, tweet);
+        });
     }
 
     // Post button press

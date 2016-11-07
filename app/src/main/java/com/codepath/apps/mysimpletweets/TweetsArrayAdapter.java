@@ -71,6 +71,15 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
             }
         });
 
+        // imageView for reply
+        ImageView ivReply = (ImageView) convertView.findViewById(R.id.replyImageView);
+        ivReply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replyToTweet(tweet);
+            }
+        });
+
         // 5. return the view to be inserted into the list
         return convertView;
     }
@@ -78,6 +87,11 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
     public void gotoProfileForUser(User u) {
         Log.d("debug", "clicked on image for user: " + u.getName());
         listener.onDataLoaded(u.getScreenName());
+    }
+
+    public void replyToTweet(Tweet t) {
+        Log.d("debug", "replying to tweet with id: " + t.getUid());
+        listener.reply(t.getUid() + "", t.getUser().getScreenName());
     }
 
 //    public void onProfileView(MenuItem mi) {
@@ -91,6 +105,8 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
         public void onObjectReady(String title);
         // or when data has been loaded
         public void onDataLoaded(String screenName);
+
+        public void reply(String uid, String screenName);
     }
 
 }

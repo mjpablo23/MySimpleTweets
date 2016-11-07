@@ -10,8 +10,8 @@ import java.util.Date;
 
 public final class GeneratedDatabaseHolder extends DatabaseHolder {
   public GeneratedDatabaseHolder() {
-    typeConverters.put(Calendar.class, new CalendarConverter());
     typeConverters.put(Date.class, new DateConverter());
+    typeConverters.put(Calendar.class, new CalendarConverter());
     typeConverters.put(java.sql.Date.class, new SqlDateConverter());
     typeConverters.put(Boolean.class, new BooleanConverter());
     new MyDatabaseRestClientDatabase_Database(this);

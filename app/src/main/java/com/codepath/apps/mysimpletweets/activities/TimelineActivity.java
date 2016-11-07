@@ -7,12 +7,14 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.astuetz.PagerSlidingTabStrip;
@@ -30,6 +32,9 @@ public class TimelineActivity extends AppCompatActivity {
     // compose activity
     private final int REQUEST_CODE_COMPOSE = 20;
 
+    // Instance of the progress action-view
+    MenuItem miActionProgressItem;
+
     // pager adapter
     TweetsPagerAdapter tweetsPagerAdapter;
     ViewPager vpPager;
@@ -38,9 +43,10 @@ public class TimelineActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timeline);
 
-
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        // set toolbar icon
+        toolbar.setTitle("Super Twitter");
+        toolbar.setNavigationIcon(R.drawable.super_twitter_small);
         setSupportActionBar(toolbar);
 
         // get viewpager
@@ -55,6 +61,15 @@ public class TimelineActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        // Store instance of the menu item containing progress
+        miActionProgressItem = menu.findItem(R.id.miActionProgress);
+        // Extract the action-view from the menu item
+        ProgressBar v =  (ProgressBar) MenuItemCompat.getActionView(miActionProgressItem);
+        // Return to finish
+        return super.onPrepareOptionsMenu(menu);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -106,10 +121,14 @@ public class TimelineActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
             if (position == 0) {
-                return new HomeTimelineFragment();
+                HomeTimelineFragment h = new HomeTimelineFragment();
+                h.miActionProgressItem = miActionProgressItem;
+                return h;
             }
             else if (position == 1) {
-                return new MentionsTimelineFragment();
+                MentionsTimelineFragment m = new MentionsTimelineFragment();
+                m.miActionProgressItem = miActionProgressItem;
+                return m;
             }
             else {
                 return null;
@@ -137,11 +156,15 @@ public class TimelineActivity extends AppCompatActivity {
 //            TweetsListFragment tf = (TweetsListFragment) tweetsPagerAdapter.getRegisteredFragment(vpPager.getCurrentItem());
 //            tf.populateTimeline();
 
+            miActionProgressItem.setVisible(true);
+
             for (int i=0; i < tweetsPagerAdapter.getCount(); i++) {
                 TweetsListFragment tf = (TweetsListFragment) tweetsPagerAdapter.getRegisteredFragment(i);
                 tf.hasInter = hasInternet();
                 tf.populateGenericTimelineWithSinceId();
             }
+
+            miActionProgressItem.setVisible(false);
 
 //            TweetsListFragment tf = (TweetsListFragment) tweetsPagerAdapter.getRegisteredFragment(0);
 //            tf.populateHomeTimelineWithSinceId();

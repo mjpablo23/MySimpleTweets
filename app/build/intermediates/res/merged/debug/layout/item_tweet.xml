@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="wrap_content"
-    android:padding="10dp"
-    >
+    android:padding="10dp">
 
     <ImageView
         android:id="@+id/ivProfileImage"
@@ -60,7 +59,36 @@
         android:layout_height="20dp"
         android:textSize="12sp"
         android:text="22m"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"/>
+        android:layout_below="@+id/tvBody"/>
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:id="@+id/replyImageView"
+        android:background="@android:drawable/ic_menu_revert"
+        android:layout_below="@+id/tvBody"
+        android:layout_toLeftOf="@+id/relativeTimestamp"
+        android:layout_toStartOf="@+id/relativeTimestamp"
+        android:layout_alignBottom="@+id/relativeTimestamp"
+        android:onClick="replyToTweet"/>
+
+
+    <!--<Button-->
+        <!--style="?android:attr/buttonStyleSmall"-->
+        <!--android:layout_width="30dp"-->
+        <!--android:layout_height="20dp"-->
+        <!--android:text="reply"-->
+        <!--android:id="@+id/buttonReply"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_below="@+id/tvBody"-->
+        <!--android:layout_toLeftOf="@+id/relativeTimestamp"-->
+        <!--android:layout_toStartOf="@+id/relativeTimestamp"-->
+    <!--/>-->
+
+    <!--android:background="@android:drawable/ic_menu_revert"-->
+
+
 </RelativeLayout>

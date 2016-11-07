@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -19,6 +20,7 @@ import com.codepath.apps.mysimpletweets.R;
 import com.codepath.apps.mysimpletweets.TweetsArrayAdapter;
 import com.codepath.apps.mysimpletweets.TwitterApp;
 import com.codepath.apps.mysimpletweets.TwitterClient;
+import com.codepath.apps.mysimpletweets.activities.ComposeActivity;
 import com.codepath.apps.mysimpletweets.activities.TweetDetailActivity;
 import com.codepath.apps.mysimpletweets.custom.EndlessScrollListener;
 import com.codepath.apps.mysimpletweets.models.Tweet;
@@ -59,6 +61,10 @@ public class TweetsListFragment extends Fragment {
 
     public String screenNameClicked = "";
 
+    private final int REQUEST_CODE_COMPOSE = 20;
+
+    // progress bar
+    public MenuItem miActionProgressItem;
 
     // inflation logic
     @Override
@@ -102,10 +108,10 @@ public class TweetsListFragment extends Fragment {
         // construct adapter from data souce
         aTweets = new TweetsArrayAdapter(getActivity(), tweets);
 
-        setImageClickedListenerInAdapter();
+        setItemListenerInAdapter();
     }
 
-    public void setImageClickedListenerInAdapter() {
+    public void setItemListenerInAdapter() {
         aTweets.setProfileImageClickedListener(new TweetsArrayAdapter.ProfileImageClickedListener() {
             @Override
             public void onObjectReady(String title) {
@@ -119,6 +125,15 @@ public class TweetsListFragment extends Fragment {
                 Intent i = new Intent(getActivity(), ProfileActivity.class);
                 i.putExtra("screen_name", screenName);
                 startActivity(i);
+            }
+
+            public void reply(String uid, String screenName) {
+                Intent i = new Intent(getActivity(), ComposeActivity.class);
+                System.out.println("start filter activity");
+                i.putExtra("uid", uid);
+                i.putExtra("screen_name", screenName);
+                startActivityForResult(i, REQUEST_CODE_COMPOSE);
+                Log.d("debug", "called startActivityForResult");
             }
         });
     }
@@ -253,6 +268,8 @@ public class TweetsListFragment extends Fragment {
 //            return;
 //        }
 
+        showProgressBar();
+
         // at 45:23 in video
         if (screenNameClicked.isEmpty()) {
             client.getGenericTimeline(fragmentType, new JsonHttpResponseHandler() {
@@ -328,6 +345,8 @@ public class TweetsListFragment extends Fragment {
                 }
             });
         }
+
+        hideProgressBar();
     }
 
     public void populateGenericTimelineWithSinceId() {
@@ -403,6 +422,29 @@ public class TweetsListFragment extends Fragment {
 
         populateTimeline();
         swipeContainer.setRefreshing(false);
+    }
+
+    // progress bar
+    public void showProgressBar() {
+        // Show progress item
+        Log.d("debug", "showProgressBar");
+        if (miActionProgressItem != null) {
+            miActionProgressItem.setVisible(true);
+        }
+        else {
+            Log.d("debug", "progressBar null");
+        }
+    }
+
+    public void hideProgressBar() {
+        // Hide progress item
+        Log.d("debug", "hideProgressBar");
+        if (miActionProgressItem != null) {
+            miActionProgressItem.setVisible(false);
+        }
+        else {
+            Log.d("debug", "progressBar null");
+        }
     }
 
     public Boolean hasInternet() {

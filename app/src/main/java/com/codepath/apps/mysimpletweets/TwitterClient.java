@@ -155,6 +155,18 @@ public class TwitterClient extends OAuthBaseClient {
         getClient().post(apiUrl, params, handler);
     }
 
+    public void makeReply(String postStr, String replyToStatusId, AsyncHttpResponseHandler handler) {
+        String apiUrl = getApiUrl("statuses/update.json");
+
+        RequestParams params = new RequestParams();
+        params.put("status", postStr);
+
+        params.put("in_reply_to_status_id", replyToStatusId);
+        // http://stackoverflow.com/questions/107390/whats-the-difference-between-a-post-and-a-put-http-request
+        // call post, not put?
+        getClient().post(apiUrl, params, handler);
+    }
+
     public void getUserInfoForSelf(AsyncHttpResponseHandler handler) {
         String apiUrl = getApiUrl("account/verify_credentials.json");
         //String apiUrl = getApiUrl("users/show.json");

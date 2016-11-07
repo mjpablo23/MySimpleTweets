@@ -8,6 +8,10 @@
         "source": "/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/res/drawable-mdpi/ic_profile.png"
     },
     {
+        "merged": "/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/drawable-mdpi/twitter_super.png",
+        "source": "/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/res/drawable-mdpi/twitter_super.png"
+    },
+    {
         "merged": "/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/drawable-mdpi/ic_launcher.png",
         "source": "/Users/paulyang/AndroidStudioProjects/MySimpleTweets/app/src/main/res/drawable-mdpi/ic_launcher.png"
     }
